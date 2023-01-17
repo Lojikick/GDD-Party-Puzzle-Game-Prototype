@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpikesHandler : Mechanism
+public class LockedDoorHandler : Mechanism
 {
     [Header("Components")]
     [SerializeField] private Animator animator;
@@ -19,49 +19,43 @@ public class SpikesHandler : Mechanism
 
     public override void Enable()
     {
-        // Show spikes
-        Trigger();
+        // Unlock this door
+        Unlock();
     }
 
     public override void Disable()
     {
-        // Remove spikes
-        Retract();
+        // Lock this door
+        Lock();
     }
 
-    private void Trigger()
+    private void Unlock()
     {
         // Play animation
-        animator.Play("Trigger");
+        animator.Play("Unlock");
 
-        // Enable contact
+        // Allow player to pass through
         collider2d.enabled = true;
 
         if (debugMode)
         {
             // Debug
-            print("Spikes were triggered!");
+            print("Locked door was unlocked.");
         }
     }
 
-    private void Retract()
+    private void Lock()
     {
         // Play animation
-        animator.Play("Retract");
+        animator.Play("Lock");
 
-        // Disable contact
-        collider2d.enabled = false;
+        // Prevent player from passing through
+        collider2d.enabled = true;
 
         if (debugMode)
         {
             // Debug
-            print("Spikes were retracted!");
+            print("Locked door was locked.");
         }
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        // If the spikes are triggered, then do stuff
-        // TODO
     }
 }

@@ -7,6 +7,9 @@ public class PressurePlateHandler : MonoBehaviour
     [Header("Components")]
     [SerializeField] private Animator animator;
 
+    [Header("Mechanism")]
+    [SerializeField] private Mechanism mechanism;
+
     [Header("Debug")]
     [SerializeField] private bool debugMode;
 
@@ -20,10 +23,18 @@ public class PressurePlateHandler : MonoBehaviour
         // Play animation
         animator.Play("Pressed");
 
-        if (debugMode)
+        // Debug
+        if (debugMode) print("Plate were pressed by: " + other.name);
+
+        // If there is a connected mechanism, enable it
+        if (mechanism != null)
+        {
+            mechanism.Enable();
+        } 
+        else
         {
             // Debug
-            print("Plate were pressed by: " + other.name);
+            if (debugMode) print("No mechanism connected to " + name);
         }
     }
 
@@ -32,10 +43,27 @@ public class PressurePlateHandler : MonoBehaviour
         // Play animation
         animator.Play("Released");
 
-        if (debugMode)
+        // Debug
+        if (debugMode) print("Plate were released by: " + other.name);
+
+        // If there is a connected mechanism, disable it
+        if (mechanism != null)
         {
-            // Debug
-            print("Plate were released by: " + other.name);
+            mechanism.Disable();
+        }
+        else 
+        {
+            if (debugMode) print("No mechanism connected to " + name);
+        }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        if (mechanism != null)
+        {
+            // Draw a line between this and it's connected mechanism
+            Gizmos.color = Color.red;
+            Gizmos.DrawLine(transform.position, mechanism.transform.position);
         }
     }
 }
