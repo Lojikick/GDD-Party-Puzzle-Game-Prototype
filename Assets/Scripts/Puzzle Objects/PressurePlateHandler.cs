@@ -20,7 +20,6 @@ public class PressurePlateHandler : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Pressed!");
         // Play animation
         animator.Play("Pressed");
 
