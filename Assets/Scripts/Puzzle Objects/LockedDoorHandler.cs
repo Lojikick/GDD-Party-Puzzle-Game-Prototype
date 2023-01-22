@@ -4,58 +4,27 @@ using UnityEngine;
 
 public class LockedDoorHandler : Mechanism
 {
-    [Header("Components")]
-    [SerializeField] private Animator animator;
-    [SerializeField] private Collider2D collider2d;
+    /*
+    [YOUR REFERENCES/VARIABLES HERE]
+    */
 
     [Header("Debug")]
     [SerializeField] private bool debugMode;
 
     private void Awake()
     {
-        animator = GetComponentInChildren<Animator>();
-        collider2d = GetComponentInChildren<Collider2D>();
+        // [YOUR CODE HERE]
     }
 
     public override void Enable()
     {
-        // Unlock this door
-        Unlock();
+        // [YOUR CODE HERE]
     }
 
     public override void Disable()
     {
-        // Lock this door
-        Lock();
+        // [YOUR CODE HERE]
     }
 
-    private void Unlock()
-    {
-        // Play animation
-        animator.Play("Unlock");
-
-        // Allow player to pass through
-        collider2d.enabled = true;
-
-        if (debugMode)
-        {
-            // Debug
-            print("Locked door was unlocked.");
-        }
-    }
-
-    private void Lock()
-    {
-        // Play animation
-        animator.Play("Lock");
-
-        // Prevent player from passing through
-        collider2d.enabled = true;
-
-        if (debugMode)
-        {
-            // Debug
-            print("Locked door was locked.");
-        }
-    }
+    // [ANY HELPER FUNCTIONS HERE]
 }

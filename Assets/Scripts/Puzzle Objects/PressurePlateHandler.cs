@@ -4,66 +4,33 @@ using UnityEngine;
 
 public class PressurePlateHandler : MonoBehaviour
 {
-    [Header("Components")]
-    [SerializeField] private Animator animator;
+    /*
+    [YOUR REFERENCES/VARIABLES HERE]
+    */
 
-    [Header("Mechanism")]
-    [SerializeField] private Mechanism mechanism;
-
-    [Header("Debug")]
+    [Header("Debugging")]
     [SerializeField] private bool debugMode;
 
     private void Awake()
     {
-        animator = GetComponentInChildren<Animator>();
+        // [YOUR CODE HERE]
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // Play animation
-        animator.Play("Pressed");
+        // Debugging feedback
+        if (debugMode) print(name + "was pressed.");
 
-        // Debug
-        if (debugMode) print("Plate were pressed by: " + other.name);
-
-        // If there is a connected mechanism, enable it
-        if (mechanism != null)
-        {
-            mechanism.Enable();
-        } 
-        else
-        {
-            // Debug
-            if (debugMode) print("No mechanism connected to " + name);
-        }
+        // [YOUR CODE HERE]
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        // Play animation
-        animator.Play("Released");
+        // Debugging feedback
+        if (debugMode) print(name + "was released.");
 
-        // Debug
-        if (debugMode) print("Plate were released by: " + other.name);
-
-        // If there is a connected mechanism, disable it
-        if (mechanism != null)
-        {
-            mechanism.Disable();
-        }
-        else 
-        {
-            if (debugMode) print("No mechanism connected to " + name);
-        }
+        // [YOUR CODE HERE]
     }
 
-    private void OnDrawGizmosSelected()
-    {
-        if (mechanism != null)
-        {
-            // Draw a line between this and it's connected mechanism
-            Gizmos.color = Color.red;
-            Gizmos.DrawLine(transform.position, mechanism.transform.position);
-        }
-    }
+    // [ANY HELPER FUNCTIONS HERE]
 }
