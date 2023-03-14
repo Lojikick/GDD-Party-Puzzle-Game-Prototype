@@ -5,39 +5,21 @@ using UnityEngine;
 [CreateAssetMenu]
 public class Dialogue : ScriptableObject
 {
+    public Sprite portraitSprite;
     [Header("Editable Attributes")]
     [TextArea(4,10)]
-    [SerializeField] private string[] messages;
-    [SerializeField] private Sprite portraitSprite;
+    public string[] messages;
+    public int length { get { return messages.Length; }}
 
-    [Header("Debugging")]
-    [SerializeField] private int currentIndex;
-
-    public void Reset()
-    {
-        // Set index to 0
-        currentIndex = 0;
-    }
-
-    public void Next()
-    {
-        // Increment index up to message length
-        currentIndex = Mathf.Min(messages.Length, currentIndex + 1);
-    }
-
-    public void Previous()
-    {
-        // Decrement index until 0
-        currentIndex = Mathf.Max(0, currentIndex - 1);
-    }
-
-    public string GetMessage()
-    {
-        return messages[currentIndex];
-    }
-
-    public Sprite GetPortrait()
-    {
-        return portraitSprite;
-    }
+    // Allow indexing dialogue as if it were an arry
+    public string this[int index] {
+      get 
+      {
+        return messages[index];
+      }
+      set 
+      {
+        messages[index] = value;
+      }
+   }
 }

@@ -12,9 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dab66c5a9f99644e98aa9612c00337b, type: 3}
   m_Name: Test Dialogue
   m_EditorClassIdentifier: 
+  portraitSprite: {fileID: 21300000, guid: 77a082c394a1f5840890211a31c02205, type: 3}
   messages:
-  - 
-  - 
-  - 
-  portraitSprite: {fileID: 0}
-  currentIndex: 0
+  - '#1. This is the first message used for testing lol.'
+  - '#2 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+    irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+    nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
+    qui officia deserunt mollit anim id est laborum.'
+  - '#3 You are filled with determination.'
+  - '#4 I hope you can see this message. Blah blah blah Blah blah blah Blah blah
+    blah'
+  - '#5: This is the last message used for testing.'
