@@ -13,12 +13,17 @@ public class DialogueUI : MonoBehaviour
     [SerializeField] private Image rightCharacterImage;
     [SerializeField] private TextMeshProUGUI nameTextBox;
     [SerializeField] private TextMeshProUGUI messsageTextBox;
+    [SerializeField] private Material grayScaleMaterial;
 
     [Header("Settings")]
-    [SerializeField] private Material grayScaleMaterial;
+    [SerializeField] private float textSpeed;
+
+    [Header("ADjustable Settings")]
     [SerializeField] private float uiFadeDuration;
     [SerializeField] private float characterFadeDuration;
-    [SerializeField] private float textSpeed;
+    [SerializeField] private float characterSpriteChangeBouncePower;
+    [SerializeField] private float characterSpriteChangeDuration;
+    [SerializeField] private float characterDimAlpha;
 
     [Header("Debugging")]
     [SerializeField] private int currentIndex;
@@ -42,17 +47,11 @@ public class DialogueUI : MonoBehaviour
 
         this.currentDialogue = dialogue;
 
-        // Inital setup
-        leftCharacterImage.sprite = dialogue.initalLeftCharacterSprite;
-        leftCharacterImage.material = grayScaleMaterial;
-        rightCharacterImage.sprite = dialogue.initalRightCharacterSprite;
-        rightCharacterImage.material = grayScaleMaterial;
+        // Setup character values
+        IntialSetup(currentDialogue);
 
         // Show characters
         StartCoroutine(FadeUIIn(uiFadeDuration));
-
-        // Write first message
-        FirstMessage();
     }
 
     // Close UI
@@ -64,6 +63,7 @@ public class DialogueUI : MonoBehaviour
         this.currentDialogue = null;
     }
 
+    // This is called via buttons
     public void FirstMessage()
     {
         currentIndex = 0;
@@ -71,6 +71,7 @@ public class DialogueUI : MonoBehaviour
         DisplayCurrentMessage(currentDialogue[currentIndex]);
     }
 
+    // This is called via buttons
     public void NextMessage()
     {
         // Check if we are in the middle of the current dialogue
@@ -99,6 +100,7 @@ public class DialogueUI : MonoBehaviour
         }
     }
 
+    // This is called via buttons
     public void PreviousMessage()
     {
         // Decrement index until 0
@@ -107,12 +109,16 @@ public class DialogueUI : MonoBehaviour
         DisplayCurrentMessage(currentDialogue[currentIndex]);
     }
 
+    // This is called via buttons
     public void LastMessage()
     {
         currentIndex = currentDialogue.length - 1;
 
         DisplayCurrentMessage(currentDialogue[currentIndex]);
     }
+
+
+    #region Helper Functions
 
     private IEnumerator FadeUIIn(float duration)
     {
@@ -134,11 +140,16 @@ public class DialogueUI : MonoBehaviour
 
         // Set final values
         dialogueBoxCanvasGroup.alpha = 1f;
-        dialogueBoxCanvasGroup.interactable = true;
-        dialogueBoxCanvasGroup.blocksRaycasts = true;
 
         // Fade characters in
         yield return FadeCharactersIn(0.95f, 1f, characterFadeDuration);
+
+        // Allow interactivity
+        dialogueBoxCanvasGroup.interactable = true;
+        dialogueBoxCanvasGroup.blocksRaycasts = true;
+
+        // Display first message now
+        FirstMessage();
     }
 
     private IEnumerator FadeUIOut(float duration)
@@ -174,10 +185,12 @@ public class DialogueUI : MonoBehaviour
         leftCharacterImage.transform.localScale = Vector3.one * startScale;
         var leftColor = leftCharacterImage.color;
         leftColor.a = 0f;
+        leftCharacterImage.color = leftColor;
 
         rightCharacterImage.transform.localScale = Vector3.one * startScale;
         var rightColor = rightCharacterImage.color;
         rightColor.a = 0f;
+        rightCharacterImage.color = rightColor;
 
         float elapsed = 0;
         while (elapsed < duration)
@@ -185,12 +198,12 @@ public class DialogueUI : MonoBehaviour
             float ratio = elapsed / duration;
 
             // Lerp values
-            leftCharacterImage.transform.localScale = Vector3.one * (startScale + (finalScale - startScale) * ratio);
-            leftColor.a = ratio;
+            leftCharacterImage.transform.localScale = Vector3.one * Mathf.Lerp(startScale, finalScale, ratio);
+            leftColor.a = Mathf.Lerp(0f, characterDimAlpha, ratio);
             leftCharacterImage.color = leftColor;
 
-            rightCharacterImage.transform.localScale = Vector3.one * (startScale + (finalScale - startScale) * ratio);
-            rightColor.a = ratio;
+            rightCharacterImage.transform.localScale = Vector3.one * Mathf.Lerp(startScale, finalScale, ratio);
+            rightColor.a = Mathf.Lerp(0f, characterDimAlpha, ratio);
             rightCharacterImage.color = rightColor;
 
             // Increment time
@@ -200,11 +213,11 @@ public class DialogueUI : MonoBehaviour
 
         // Set final values
         leftCharacterImage.transform.localScale = Vector3.one * finalScale;
-        leftColor.a = 1f;
+        leftColor.a = characterDimAlpha;
         leftCharacterImage.color = leftColor;
 
         rightCharacterImage.transform.localScale = Vector3.one * finalScale;
-        rightColor.a = 1f;
+        rightColor.a = characterDimAlpha;
         rightCharacterImage.color = rightColor;
     }
 
@@ -253,41 +266,104 @@ public class DialogueUI : MonoBehaviour
         // Change name
         nameTextBox.text = message.name;
 
-        // Change character sprite
-        if (message.isRightCharacter)
+        // If sprite is empty, the assume dialogue is narration
+        if (message.characterSprite == null)
         {
-            // Apply bounce effect if new sprite
-            if (rightCharacterImage.sprite != message.characterSprite)
-            {
-                // TODO
-                LeanTween.moveLocalY(rightCharacterImage.gameObject, 20f, 0.5f);
-                LeanTween.moveLocalY(rightCharacterImage.gameObject, -20f, 0.5f);
-            }
+            messsageTextBox.fontStyle = FontStyles.Italic;
 
-            rightCharacterImage.sprite = message.characterSprite;
-            rightCharacterImage.material = null;
-
-            // Gray out other character
-            leftCharacterImage.material = grayScaleMaterial;
+            DimCharacter(rightCharacterImage);
+            DimCharacter(leftCharacterImage);
         }
-        else 
+        else
         {
-            // Apply bounce effect if new sprite
-            if (leftCharacterImage.sprite != message.characterSprite)
+            messsageTextBox.fontStyle = FontStyles.Normal;
+
+            // Change character sprite
+            if (message.isRightCharacter)
             {
-                // TODO
-                // LeanTween.moveLocalY(leftCharacterImage.gameObject, 20f, 0.5f).setEaseInOutBounce();
+                // If new sprite 
+                if (rightCharacterImage.sprite != message.characterSprite)
+                {
+                    ApplyBounceEffect(rightCharacterImage.gameObject);
+                }
+
+                rightCharacterImage.sprite = message.characterSprite;
+
+                EmphasizeCharacter(rightCharacterImage);
+                DimCharacter(leftCharacterImage);
             }
+            else
+            {
+                // If new sprite 
+                if (leftCharacterImage.sprite != message.characterSprite)
+                {
+                    ApplyBounceEffect(leftCharacterImage.gameObject);
+                }
 
-            leftCharacterImage.sprite = message.characterSprite;
-            leftCharacterImage.material = null;
+                // Update sprite
+                leftCharacterImage.sprite = message.characterSprite;
 
-            // Gray out other character
-            rightCharacterImage.material = grayScaleMaterial;
+                EmphasizeCharacter(leftCharacterImage);
+                DimCharacter(rightCharacterImage);
+            }
         }
+
+        
 
         if (routine != null) StopCoroutine(routine);
         routine = StartCoroutine(WriteMessageOverTime(message.text));
+    }
+
+    private void IntialSetup(Dialogue dialogue)
+    {
+        // Clear any messages
+        nameTextBox.text = "";
+        messsageTextBox.text = "";
+
+        Color color;
+
+        leftCharacterImage.sprite = dialogue.initalLeftCharacterSprite;
+        leftCharacterImage.material = grayScaleMaterial;
+        // Changle alpha
+        color = leftCharacterImage.color;
+        color.a = 0f;
+        leftCharacterImage.color = color;
+
+        rightCharacterImage.sprite = dialogue.initalRightCharacterSprite;
+        leftCharacterImage.material = grayScaleMaterial;
+        // Changle alpha
+        color = rightCharacterImage.color;
+        color.a = 0f;
+        rightCharacterImage.color = color;
+    }
+
+    private void ApplyBounceEffect(GameObject gameObject)
+    {
+        var offset = characterSpriteChangeBouncePower;
+        var newY = gameObject.transform.position.y + offset;
+        LeanTween.moveY(gameObject, newY, characterSpriteChangeDuration).setEasePunch();
+    }
+
+    private void EmphasizeCharacter(Image characterImage)
+    {
+        // Remove grayscale
+        characterImage.material = null;
+
+        // Restore alpha
+        var color = characterImage.color;
+        color.a = 1f;
+        characterImage.color = color;
+    }
+
+    private void DimCharacter(Image characterImage)
+    {
+        // Add grayscale
+        characterImage.material = grayScaleMaterial;
+
+        // Reduce alpha
+        var color = characterImage.color;
+        color.a = characterDimAlpha;
+        characterImage.color = color;
     }
 
     private IEnumerator WriteMessageOverTime(string message)
@@ -304,6 +380,7 @@ public class DialogueUI : MonoBehaviour
 
         // Clear routine
         routine = null;
-
     }
+
+    #endregion
 }
