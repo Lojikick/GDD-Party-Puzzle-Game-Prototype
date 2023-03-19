@@ -64,6 +64,7 @@
      <Compile Include="Assets\LeanTween\Testing\Testing240.cs" />
      <Compile Include="Assets\LeanTween\Testing\Scripts\LeanPool.cs" />
      <Compile Include="Assets\Scripts\Puzzle Objects\ButtonHandler.cs" />
+     <Compile Include="Assets\Scripts\Audio\Sound.cs" />
      <Compile Include="Assets\LeanTween\Testing\TestingSequencer.cs" />
      <Compile Include="Assets\LeanTween\Examples\Scripts\TestingZLegacy.cs" />
      <Compile Include="Assets\Scripts\Dialogue System\Dialogue.cs" />
@@ -87,6 +88,7 @@
      <Compile Include="Assets\LeanTween\Framework\LeanTween.cs" />
      <Compile Include="Assets\LeanTween\Framework\LeanTweenExt.cs" />
      <Compile Include="Assets\Scripts\World\EntranceHandler.cs" />
+     <Compile Include="Assets\Scripts\Audio\AudioManager.cs" />
      <Compile Include="Assets\LeanTween\Framework\LeanSmooth.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
      <Compile Include="Assets\LeanTween\Framework\LeanAudio.cs" />
