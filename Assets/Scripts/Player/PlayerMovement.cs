@@ -9,19 +9,22 @@ public class PlayerMovement : MonoBehaviour
     /*
     [YOUR REFERENCES/VARIABLES HERE]
     */
+    public float moveSpeed = 5f;
+    public Rigidbody2D rb;
+    Vector2 movement;
 
     // Update is called once per frame, will be used to track inputs
     void Update()
     {
         // Input: Vector 
-        //movement.x = Input.GetAxisRaw("Insert Direction Here");
-        //movement.y = Input.GetAxisRaw("Insert Direction Here");
+        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.y = Input.GetAxisRaw("Vertical");
     }
 
     //Fixed Update, will be used to handle movemement
     void FixedUpdate()
     {
-        //rb.MovePosition(____+ ____ * ____ * _____);
+        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
 
     }
 }
