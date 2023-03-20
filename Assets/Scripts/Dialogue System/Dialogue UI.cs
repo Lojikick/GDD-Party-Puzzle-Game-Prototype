@@ -31,6 +31,18 @@ public class DialogueUI : MonoBehaviour
 
     private Coroutine routine;
 
+    public static DialogueUI instance;
+    private void Awake()
+    {
+        // Singleton logic
+        if (instance != null)
+        {
+            Destroy(this);
+            return;
+        }
+        instance = this;
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -307,8 +319,6 @@ public class DialogueUI : MonoBehaviour
                 DimCharacter(rightCharacterImage);
             }
         }
-
-        
 
         if (routine != null) StopCoroutine(routine);
         routine = StartCoroutine(WriteMessageOverTime(message.text));

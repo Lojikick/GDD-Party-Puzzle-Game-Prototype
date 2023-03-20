@@ -1,0 +1,343 @@
+Using pre-set license
+Built from '2022.2/release' branch; Version is '2022.2.1f1 (4fead5835099) revision 5237461'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 11  (10.0.22621) 64bit Core' Language: 'en' Physical Memory: 16310 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2022.2.1f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+C:/Users/eduar/OneDrive/Desktop/Unity Projects/GDD-Party-Puzzle-Game-Prototype
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+57097
+Successfully changed project path to: C:/Users/eduar/OneDrive/Desktop/Unity Projects/GDD-Party-Puzzle-Game-Prototype
+C:/Users/eduar/OneDrive/Desktop/Unity Projects/GDD-Party-Puzzle-Game-Prototype
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [11184] Host "[IP] 192.168.1.3 [Port] 0 [Flags] 2 [Guid] 1636389481 [EditorId] 1636389481 [Version] 1048832 [Id] WindowsEditor(7,Ed) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+
+Player connection [11184] Host "[IP] 192.168.1.3 [Port] 0 [Flags] 2 [Guid] 1636389481 [EditorId] 1636389481 [Version] 1048832 [Id] WindowsEditor(7,Ed) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+
+Refreshing native plugins compatible for Editor in 15.90 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2022.2.1f1 (4fead5835099)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.2.1f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/eduar/OneDrive/Desktop/Unity Projects/GDD-Party-Puzzle-Game-Prototype/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce GTX 1060 6GB (ID=0x1c03)
+    Vendor:   NVIDIA
+    VRAM:     6052 MB
+    Driver:   31.0.15.1694
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.2.1f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.2.1f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.2.1f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56248
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.2.1f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.008880 seconds.
+- Loaded All Assemblies, in  0.378 seconds
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.323 seconds
+Domain Reload Profiling:
+	ReloadAssembly (219ms)
+		BeginReloadAssembly (86ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (0ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (1ms)
+		LoadAllAssembliesAndSetupDomain (0ms)
+			LoadAssemblies (84ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (150ms)
+				TypeCache.Initialize (149ms)
+					TypeCache.ScanAssembly (147ms)
+				ResolveRequiredComponents (1ms)
+		FinalizeReload (0ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (0ms)
+			SetupLoadedEditorAssemblies (252ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (10ms)
+				SetLoadedEditorAssemblies (10ms)
+				RefreshPlugins (0ms)
+				BeforeProcessingInitializeOnLoad (1ms)
+				ProcessInitializeOnLoadAttributes (172ms)
+				ProcessInitializeOnLoadMethodAttributes (59ms)
+				AfterProcessingInitializeOnLoad (0ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (0ms)
+========================================================================
+Worker process is ready to serve import requests
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\eduar\OneDrive\Desktop\Unity Projects\GDD-Party-Puzzle-Game-Prototype\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\eduar\OneDrive\Desktop\Unity Projects\GDD-Party-Puzzle-Game-Prototype\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+- Loaded All Assemblies, in  0.921 seconds
+Refreshing native plugins compatible for Editor in 5.03 ms, found 4 plugins.
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.618 seconds
+Domain Reload Profiling:
+	ReloadAssembly (253ms)
+		BeginReloadAssembly (138ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (9ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (25ms)
+		LoadAllAssembliesAndSetupDomain (664ms)
+			LoadAssemblies (100ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (617ms)
+				TypeCache.Initialize (341ms)
+					TypeCache.ScanAssembly (337ms)
+				ResolveRequiredComponents (6ms)
+		FinalizeReload (0ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (0ms)
+			SetupLoadedEditorAssemblies (443ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (5ms)
+				SetLoadedEditorAssemblies (9ms)
+				RefreshPlugins (0ms)
+				BeforeProcessingInitializeOnLoad (81ms)
+				ProcessInitializeOnLoadAttributes (301ms)
+				ProcessInitializeOnLoadMethodAttributes (40ms)
+				AfterProcessingInitializeOnLoad (7ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (7ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
+Refreshing native plugins compatible for Editor in 5.70 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4509 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 53 unused Assets / (145.9 KB). Loaded Objects now: 4967.
+Memory consumption went from 0.67 GB to 0.67 GB.
+Total: 3.800700 ms (FindLiveObjects: 0.420300 ms CreateObjectMapping: 0.515600 ms MarkObjects: 2.736800 ms  DeleteObjects: 0.127100 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 431992.221364 seconds.
+  path: Assets/Tiles/World Palette.prefab
+  artifactKey: Guid(befc8369514021f46a1f6d49b737f85b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Tiles/World Palette.prefab using Guid(befc8369514021f46a1f6d49b737f85b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ed387a770e522ab9a60efc7e854f22d1') in 0.127996 seconds 
+Number of asset objects unloaded after import = 114
+========================================================================
+Received Import Request.
+  Time since last request: 38.763479 seconds.
+  path: Assets/Tiles/OLd World Palette.prefab
+  artifactKey: Guid(befc8369514021f46a1f6d49b737f85b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Tiles/OLd World Palette.prefab using Guid(befc8369514021f46a1f6d49b737f85b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a4e68a4e0026588fb52514a55fccfa8f') in 0.027040 seconds 
+Number of asset objects unloaded after import = 114
+========================================================================
+Received Import Request.
+  Time since last request: 2.710997 seconds.
+  path: Assets/Tiles/Old World Palette.prefab
+  artifactKey: Guid(befc8369514021f46a1f6d49b737f85b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Tiles/Old World Palette.prefab using Guid(befc8369514021f46a1f6d49b737f85b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '518328e0a7db66caaa6a06e327b68a60') in 0.026400 seconds 
+Number of asset objects unloaded after import = 114
+========================================================================
+Received Import Request.
+  Time since last request: 17.502758 seconds.
+  path: Assets/Tiles/World Tile Palette.prefab
+  artifactKey: Guid(ebf432a7ff1e3244b86d093748af1457) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Tiles/World Tile Palette.prefab using Guid(ebf432a7ff1e3244b86d093748af1457) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0af1e4c6a8cde20bc57fc63372f32207') in 0.010773 seconds 
+Number of asset objects unloaded after import = 10
+========================================================================
+Received Import Request.
+  Time since last request: 13.795772 seconds.
+  path: Assets/Tiles/Palettes
+  artifactKey: Guid(d9d97aeacd9b5a540864127cbec60449) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Tiles/Palettes using Guid(d9d97aeacd9b5a540864127cbec60449) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '50bccc6b1203f19d1ef048ca7dbe6de0') in 0.007185 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 12.001796 seconds.
+  path: Assets/Tilemap
+  artifactKey: Guid(3aa815b20b5cfd448ac4344da7394bce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Tilemap using Guid(3aa815b20b5cfd448ac4344da7394bce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '86da941d864dc870bb9c9eecf450ec07') in 0.007378 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 4.786918 seconds.
+  path: Assets/Tilemap/Tiles
+  artifactKey: Guid(7e25f5c71ed4e0c40a945e4d8a635051) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Tilemap/Tiles using Guid(7e25f5c71ed4e0c40a945e4d8a635051) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '49cbb523c62b99622d4a3e8ecea5d4ae') in 0.006848 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 4.294877 seconds.
+  path: Assets/Tilemap/Tiles/Old
+  artifactKey: Guid(76565a90082b1ec40a81155d7bc6a7e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Tilemap/Tiles/Old using Guid(76565a90082b1ec40a81155d7bc6a7e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '006f169c354738d5879bbeab09f0b030') in 0.007200 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 8.881868 seconds.
+  path: Assets/Sprites/TEMP CHARACTER SPRITES
+  artifactKey: Guid(a1a9ace2d33b4c143a0d2694ea8d3a1f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Sprites/TEMP CHARACTER SPRITES using Guid(a1a9ace2d33b4c143a0d2694ea8d3a1f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '984d731b6a8b5869ba8f46a64ae5b214') in 0.007702 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.084577 seconds.
+  path: Assets/Sprites/TEMP CHARACTER SPRITES/Eve_Angry.png
+  artifactKey: Guid(59f6d2bad468e4742ae85feb64e18adc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Sprites/TEMP CHARACTER SPRITES/Eve_Angry.png using Guid(59f6d2bad468e4742ae85feb64e18adc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '35a88de8b801e9b765433113502a5578') in 0.071628 seconds 
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Sprites/TEMP CHARACTER SPRITES/Eve_Smile.png
+  artifactKey: Guid(9b4a167b914b80e418643030098ead29) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Sprites/TEMP CHARACTER SPRITES/Eve_Smile.png using Guid(9b4a167b914b80e418643030098ead29) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'be66e48d1177f068242ce3081f652a48') in 0.022694 seconds 
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Sprites/TEMP CHARACTER SPRITES/Eve_Surprise.png
+  artifactKey: Guid(cdb32d57b8270184496ac9333befcec0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Sprites/TEMP CHARACTER SPRITES/Eve_Surprise.png using Guid(cdb32d57b8270184496ac9333befcec0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4d5429a24d62d6d9e71501f7cabfa687') in 0.019703 seconds 
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Sprites/TEMP CHARACTER SPRITES/Eve_Neutral.png
+  artifactKey: Guid(653bb3678cf8195418481169106d3fc8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Sprites/TEMP CHARACTER SPRITES/Eve_Neutral.png using Guid(653bb3678cf8195418481169106d3fc8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fbb6c3ed2291de815ae8e23e8512580a') in 0.019521 seconds 
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Sprites/TEMP CHARACTER SPRITES/Eve_Laugh.png
+  artifactKey: Guid(18ac76251b2afde4cb92425df6b4cd3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Sprites/TEMP CHARACTER SPRITES/Eve_Laugh.png using Guid(18ac76251b2afde4cb92425df6b4cd3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2d48def10c7cce2c7a4057b586aed70a') in 0.021349 seconds 
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 51.687945 seconds.
+  path: Assets/Sprites/UI/Simple Borders/border_01_nobackground.png
+  artifactKey: Guid(6b31b2f3965c30742b20842536d1e89b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Sprites/UI/Simple Borders/border_01_nobackground.png using Guid(6b31b2f3965c30742b20842536d1e89b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f158a6e34c0ed2acc578ceec34a397e4') in 0.037796 seconds 
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000042 seconds.
+  path: Assets/Sprites/UI/Simple Borders/border_05_nobackground.png
+  artifactKey: Guid(39866b688b56bad4987f026b2c6e322a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Sprites/UI/Simple Borders/border_05_nobackground.png using Guid(39866b688b56bad4987f026b2c6e322a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0a4d6a594c2c8dbc973a3b2b36565964') in 0.021225 seconds 
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Sprites/UI/Simple Borders/border_05.png
+  artifactKey: Guid(bf316f9fbcffda947ae7a59a15926254) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Sprites/UI/Simple Borders/border_05.png using Guid(bf316f9fbcffda947ae7a59a15926254) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5560e3a4d07b8e47e7e966f101252642') in 0.019488 seconds 
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000038 seconds.
+  path: Assets/Sprites/UI/Simple Borders/border_04.png
+  artifactKey: Guid(9b24559573fada34ba028c018d920c40) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Sprites/UI/Simple Borders/border_04.png using Guid(9b24559573fada34ba028c018d920c40) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '162b2acf760b72ec53b066aa6df7f2b9') in 0.022163 seconds 
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Assets/Sprites/UI/Simple Borders/unknown_character.jpg
+  artifactKey: Guid(77a082c394a1f5840890211a31c02205) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Sprites/UI/Simple Borders/unknown_character.jpg using Guid(77a082c394a1f5840890211a31c02205) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c291908035def3d881fac4925ac0b2d0') in 0.020094 seconds 
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 486.746154 seconds.
+  path: Assets/Tilemap/Tiles/door not transparent.asset
+  artifactKey: Guid(a61fc2b7d572ca747bbcaf47315dedaf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Tilemap/Tiles/door not transparent.asset using Guid(a61fc2b7d572ca747bbcaf47315dedaf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7c6ac5b53001746996f7d136254251e1') in 0.016389 seconds 
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Tilemap/Tiles/door transparent.asset
+  artifactKey: Guid(a63d7ed8d93d07b439f42e185d81b916) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Tilemap/Tiles/door transparent.asset using Guid(a63d7ed8d93d07b439f42e185d81b916) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e98a60fbc80c20c2532c26f735a73c20') in 0.009625 seconds 
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 28.827078 seconds.
+  path: Assets/Tilemap/Palettes/World Tile Palette.prefab
+  artifactKey: Guid(ebf432a7ff1e3244b86d093748af1457) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Tilemap/Palettes/World Tile Palette.prefab using Guid(ebf432a7ff1e3244b86d093748af1457) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '314cb818bd01914c7f570b1aa4b6fddd') in 0.020952 seconds 
+Number of asset objects unloaded after import = 37
