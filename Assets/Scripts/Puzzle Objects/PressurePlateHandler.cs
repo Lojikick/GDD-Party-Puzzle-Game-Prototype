@@ -6,7 +6,10 @@ public class PressurePlateHandler : MonoBehaviour
 {
     /*
     [YOUR REFERENCES/VARIABLES HERE]
+    // Use Mechanism Enable() and Disable()
+    // Animator: Play(string name)
     */
+
 
     [Header("Debugging")]
     [SerializeField] private bool debugMode;
@@ -14,6 +17,8 @@ public class PressurePlateHandler : MonoBehaviour
     private void Awake()
     {
         // [YOUR CODE HERE]
+
+        
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -22,6 +27,7 @@ public class PressurePlateHandler : MonoBehaviour
         if (debugMode) print(name + "was pressed.");
 
         // [YOUR CODE HERE]
+
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -30,7 +36,9 @@ public class PressurePlateHandler : MonoBehaviour
         if (debugMode) print(name + "was released.");
 
         // [YOUR CODE HERE]
+
     }
 
     // [ANY HELPER FUNCTIONS HERE]
+
 }
