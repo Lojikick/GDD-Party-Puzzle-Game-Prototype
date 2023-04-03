@@ -20,6 +20,6 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        // TODO
+        // set start screen to visible
     }
 }
