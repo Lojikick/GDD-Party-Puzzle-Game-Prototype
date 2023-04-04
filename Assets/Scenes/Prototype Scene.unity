@@ -3255,18 +3255,12 @@ CircleCollider2D:
   m_Offset: {x: -0.00000014901161, y: -0.10963684}
   serializedVersion: 2
   m_Radius: 0.33815533
-<<<<<<< HEAD
 --- !u!1 &161509905
 GameObject:
-=======
---- !u!195 &122704860
-NavMeshAgent:
->>>>>>> c5a21607e5d449cd0be661be52da8efaa4a938ac
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
   serializedVersion: 6
   m_Component:
   - component: {fileID: 161509906}
@@ -3346,25 +3340,6 @@ SpriteRenderer:
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &211849079
-=======
-  m_GameObject: {fileID: 122704854}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.3
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 1
-  m_BaseOffset: 0.5
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
---- !u!1 &173729877
->>>>>>> c5a21607e5d449cd0be661be52da8efaa4a938ac
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3746,7 +3721,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
-<<<<<<< HEAD
 --- !u!1 &333600790
 GameObject:
   m_ObjectHideFlags: 0
@@ -3900,8 +3874,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
-=======
->>>>>>> c5a21607e5d449cd0be661be52da8efaa4a938ac
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -4221,7 +4193,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
-<<<<<<< HEAD
 --- !u!1 &691992748
 GameObject:
   m_ObjectHideFlags: 0
@@ -4515,8 +4486,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
-=======
->>>>>>> c5a21607e5d449cd0be661be52da8efaa4a938ac
 --- !u!1 &702864459
 GameObject:
   m_ObjectHideFlags: 0
@@ -5192,7 +5161,6 @@ NavMeshObstacle:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1003001917}
   m_Enabled: 1
-<<<<<<< HEAD
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -5307,16 +5275,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
-=======
-  serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 0.75, y: 0.75, z: 0.75}
-  m_MoveThreshold: 0.1
-  m_Carve: 1
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 0, z: 0}
-  m_TimeToStationary: 0.5
->>>>>>> c5a21607e5d449cd0be661be52da8efaa4a938ac
 --- !u!1 &1202920556
 GameObject:
   m_ObjectHideFlags: 0
