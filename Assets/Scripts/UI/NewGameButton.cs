@@ -13,9 +13,9 @@ public class NewGameButton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (IsTouchingMouse(this)) {
-        	this.GetParent().hide();
-        }
+        /*if (IsTouchingMouse(getChild())) {
+        	Transform.parent.GameObject.hide();
+        }*/
     }
 	
 	public bool IsTouchingMouse(GameObject g)

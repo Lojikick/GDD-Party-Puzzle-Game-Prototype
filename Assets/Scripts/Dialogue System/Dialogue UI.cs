@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class DialogueUI : MonoBehaviour
+public class DialogueUI : MonoBehaviour, IPointerClickHandler
 {
     [Header("Components")]
     [SerializeField] private Dialogue currentDialogue;
     [SerializeField] private CanvasGroup dialogueBoxCanvasGroup;
     [SerializeField] private Image leftCharacterImage;
     [SerializeField] private Image rightCharacterImage;
+    [SerializeField] private Image nextArrowImage;
     [SerializeField] private TextMeshProUGUI nameTextBox;
     [SerializeField] private TextMeshProUGUI messsageTextBox;
     [SerializeField] private Material grayScaleMaterial;
@@ -49,6 +51,13 @@ public class DialogueUI : MonoBehaviour
         {
             Open(test);
         }
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        // Check for left clicking
+        if (eventData.button == PointerEventData.InputButton.Left)
+            NextMessage();
     }
 
     // Open UI
@@ -92,12 +101,18 @@ public class DialogueUI : MonoBehaviour
             // Display entire message
             messsageTextBox.text = currentDialogue[currentIndex].text;
 
-            // Stop printing
+            // Show arrow
+            ShowArrow();
+
+            // Stop printing routine
             StopCoroutine(routine);
             routine = null;
         }
         else 
         {
+            // Hide arrow
+            HideArrow();
+
             // If we are at the end of dialogue
             if (currentIndex == currentDialogue.length - 1)
             {
@@ -127,6 +142,11 @@ public class DialogueUI : MonoBehaviour
         currentIndex = currentDialogue.length - 1;
 
         DisplayCurrentMessage(currentDialogue[currentIndex]);
+    }
+
+    public bool IsDone()
+    {
+        return currentIndex >= currentDialogue.length - 1;
     }
 
 
@@ -166,13 +186,13 @@ public class DialogueUI : MonoBehaviour
 
     private IEnumerator FadeUIOut(float duration)
     {
-        // Fade characters out first
-        yield return FadeCharactersOut(1f, 0.95f, characterFadeDuration);
-
         // Set starting values
         dialogueBoxCanvasGroup.alpha = 1f;
         dialogueBoxCanvasGroup.interactable = false;
         dialogueBoxCanvasGroup.blocksRaycasts = false;
+        
+        // Fade characters out first
+        yield return FadeCharactersOut(1f, 0.95f, characterFadeDuration);
 
         float elapsed = 0;
         while (elapsed < duration)
@@ -326,6 +346,9 @@ public class DialogueUI : MonoBehaviour
 
     private void IntialSetup(Dialogue dialogue)
     {
+        // Hide arrow
+        HideArrow();
+
         // Clear any messages
         nameTextBox.text = "";
         messsageTextBox.text = "";
@@ -387,9 +410,29 @@ public class DialogueUI : MonoBehaviour
             messsageTextBox.text += c;
             yield return new WaitForSeconds(textSpeed);
         }
+        
+        // When finished, show arrow
+        ShowArrow();
 
         // Clear routine
         routine = null;
+    }
+
+    private void ShowArrow()
+    {
+        nextArrowImage.enabled = true;
+        
+        // If we are at the end of dialogue, show arrow downward
+        if (currentIndex >= currentDialogue.length - 1)
+            nextArrowImage.transform.parent.localEulerAngles = new Vector3(0, 0, -90);
+        else
+            nextArrowImage.transform.parent.localEulerAngles = Vector3.zero;
+        
+    }
+
+    private void HideArrow()
+    {
+        nextArrowImage.enabled = false;
     }
 
     #endregion

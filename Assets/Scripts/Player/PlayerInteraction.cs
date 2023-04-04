@@ -7,19 +7,35 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] private float interactionRadius;
     [SerializeField] private LayerMask interactionLayer;
     [SerializeField] private bool isInteracting;
+    [SerializeField] private NPCHandler nPCHandler;
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
-        {
-            // Look for NPC in range
-            var hit = Physics2D.OverlapCircle(transform.position, interactionRadius, interactionLayer);
-            if (hit && hit.TryGetComponent(out NPCHandler NPCHandler))
+        {  
+            // If you are talking to an NPC, forward dialogue
+            if (isInteracting)
             {
-                // Open dialogue with NPC
-                var dialogue = NPCHandler.GetDialogue();
-                DialogueUI.instance.Open(dialogue);
+                // TODO
             }
+            // Check for any NPCs around to talk to
+            else 
+            {
+                // Look for NPC in range
+                var hit = Physics2D.OverlapCircle(transform.position, interactionRadius, interactionLayer);
+                if (hit && hit.TryGetComponent(out NPCHandler NPCHandler))
+                {
+                    // Open dialogue with NPC
+                    var dialogue = NPCHandler.StartInteraction();
+                    DialogueUI.instance.Open(dialogue);
+
+                    // TODO FIX THIS
+                    isInteracting = true;
+                    nPCHandler = NPCHandler;
+                }
+            }
+
+            
         }
     }
 
