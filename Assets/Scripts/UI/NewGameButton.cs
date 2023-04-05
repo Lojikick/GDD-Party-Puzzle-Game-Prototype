@@ -12,14 +12,10 @@ public class NewGameButton : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
-        
-    }
-	
-	void onMouseDown() {
-        if (IsTouchingMouse(gameObject)) {
+        if (IsTouchingMouse(gameObject) && Input.GetMouseButtonDown(0)) {
         	SceneManager.LoadScene("Assets/Scenes/Prototype Scene.unity");
         }
-	}
+    }
 	
 	public bool IsTouchingMouse(GameObject g) {
 	    Vector2 point = Camera.main.ScreenToWorldPoint(Input.mousePosition);

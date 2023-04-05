@@ -5,13 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Prototype Scene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/Title screen.unity
     guid: 782fda6567e27417aade454af73c7a79
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/My Bakery.unity
     guid: babe9b72c1ea58e4c878b211bf089a63
   m_configObjects: {}
