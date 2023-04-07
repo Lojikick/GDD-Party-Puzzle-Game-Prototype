@@ -7,7 +7,6 @@ public class NewGameButton : MonoBehaviour
 {
 	
 	public string path;
-	//"Assets/Scenes/Prototype Scene.unity"
 	
     // Start is called before the first frame update
     void Start() {
