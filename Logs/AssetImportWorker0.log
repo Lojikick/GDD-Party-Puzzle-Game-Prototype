@@ -188,3 +188,11 @@ Received Import Request.
 Number of updated assets reloaded before import = 0
 Start importing Assets/Scripts/UI using Guid(7b4467f47bfc7408aad2c4e883daec3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ac0a0edd73dc9ae75998dca7dbfd3874') in 0.003202 seconds 
 Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 1433.548711 seconds.
+  path: Assets/Sprites/table.png
+  artifactKey: Guid(bb12c191a066c4805a1b5bc22638d2f6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Sprites/table.png using Guid(bb12c191a066c4805a1b5bc22638d2f6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fe0cc216d101279d1202a7483b4592cd') in 0.065758 seconds 
+Number of asset objects unloaded after import = 3
