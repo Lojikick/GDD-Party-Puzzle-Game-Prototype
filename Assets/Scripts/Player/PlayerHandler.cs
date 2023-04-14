@@ -37,12 +37,14 @@ public class PlayerHandler : MonoBehaviour
                 movement.CheckForMovement();
 
                 // Interaction
-                if (Input.GetKeyDown(interactKey))
+                if (Input.GetKeyDown(interactKey) && DialogueUI.instance.IsReady())
                 {
                     // Look for any NPCs to talk to
                     bool found = interaction.CheckForInteraction();
                     if (found)
                     {
+                        movement.StopMovement();
+
                         // Change state
                         playerState = PlayerState.Talking;
                     }
@@ -51,6 +53,8 @@ public class PlayerHandler : MonoBehaviour
                     found = interaction.CheckForCookbook();
                     if (found)
                     {
+                        movement.StopMovement();
+
                         // Change state
                         playerState = PlayerState.Reading;
                     }

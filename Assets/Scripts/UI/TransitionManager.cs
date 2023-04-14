@@ -38,37 +38,55 @@ public class TransitionManager : MonoBehaviour
         return SceneManager.GetActiveScene().buildIndex;
     }
 
+    private void PlayBackgroundMusic(int buildIndex)
+    {
+        if (buildIndex == 0)
+        {
+            // No title theme?
+            // AudioManager.instance.PlayMusic("Day Background Music");
+        }
+        else if (buildIndex == 1)
+        {
+            // Play bakery theme
+            AudioManager.instance.PlayMusic("Day Background Music");
+        }
+        else
+        {
+            // Play puzzle theme
+            AudioManager.instance.PlayMusic("Night Background Music");
+        }
+    }
+
+    private void StopBackgroundMusic(int buildIndex)
+    {
+        if (buildIndex == 0)
+        {
+            // No title theme?
+            // AudioManager.instance.StopMusic("Day Background Music");
+        }
+        else if (buildIndex == 1)
+        {
+            // Stop bakery theme
+            AudioManager.instance.StopMusic("Day Background Music");
+        }
+        else
+        {
+            // Stop puzzle theme
+            AudioManager.instance.StopMusic("Night Background Music");
+        }
+    }
+
     public void OpenScene()
     {
         // Play animation
         animator.Play("Transition In");
 
-        if (GetSceneIndex() == 0)
-        {
-            // Play title music
-            AudioManager.instance.PlayMusic("Background " + 0);
-        }
-        else
-        {
-            // Play background music
-            AudioManager.instance.PlayMusic("Background " + 1);
-        }
+        // Play appropriate music
+        PlayBackgroundMusic(GetSceneIndex());
     }
 
     public void LoadNextScene()
     {
-        // Stop any background music
-        if (GetSceneIndex() == 0)
-        {
-            // Play title music
-            AudioManager.instance.StopMusic("Background " + 0);
-        }
-        else
-        {
-            // Play background music
-            AudioManager.instance.StopMusic("Background " + 1);
-        }
-
         // Stop any transition if one was happening
         if (coroutine != null) StopCoroutine(coroutine);
 
@@ -78,18 +96,6 @@ public class TransitionManager : MonoBehaviour
 
     public void LoadSelectedScene(int buildIndex)
     {
-        // Stop any background music
-        if (GetSceneIndex() == 0)
-        {
-            // Play title music
-            AudioManager.instance.StopMusic("Background " + 0);
-        }
-        else
-        {
-            // Play background music
-            AudioManager.instance.StopMusic("Background " + 1);
-        }
-
         // Stop any transition if one was happening
         if (coroutine != null) StopCoroutine(coroutine);
 
@@ -99,18 +105,6 @@ public class TransitionManager : MonoBehaviour
 
     public void ReloadScene()
     {
-        // Stop any background music
-        if (GetSceneIndex() == 0)
-        {
-            // Play title music
-            AudioManager.instance.StopMusic("Background " + 0);
-        }
-        else
-        {
-            // Play background music
-            AudioManager.instance.StopMusic("Background " + 1);
-        }
-
         // Stop any transition if one was happening
         if (coroutine != null) StopCoroutine(coroutine);
 
@@ -120,18 +114,6 @@ public class TransitionManager : MonoBehaviour
 
     public void LoadMainMenuScene()
     {
-        // Stop any background music
-        if (GetSceneIndex() == 0)
-        {
-            // Play title music
-            AudioManager.instance.StopMusic("Background " + 0);
-        }
-        else
-        {
-            // Play background music
-            AudioManager.instance.StopMusic("Background " + 1);
-        }
-
         // Stop any transition if one was happening
         if (coroutine != null) StopCoroutine(coroutine);
 
@@ -141,6 +123,9 @@ public class TransitionManager : MonoBehaviour
 
     private IEnumerator LoadScene(int index)
     {
+        // Stop any music
+        StopBackgroundMusic(GetSceneIndex());
+
         // Play animation
         animator.Play("Transition Out");
 
@@ -162,9 +147,5 @@ public class TransitionManager : MonoBehaviour
             // Load scene 0
             SceneManager.LoadScene(0);
         }
-
-
     }
-
-    public float GetTransitionTime() => transitionTime;
 }

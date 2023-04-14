@@ -54,10 +54,10 @@ MonoBehaviour:
     audioSource: {fileID: 0}
     audioMixerGroup: {fileID: 0}
   - name: Night Background Music
-    audioClip: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: 6ee24f5900537614c96809b0b797eb8a, type: 3}
     volume: 0.15
     pitch: 1
-    loop: 0
+    loop: 1
     ignorePause: 0
     audioSource: {fileID: 0}
     audioMixerGroup: {fileID: 0}

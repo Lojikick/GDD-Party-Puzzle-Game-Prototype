@@ -10,24 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8dab66c5a9f99644e98aa9612c00337b, type: 3}
-  m_Name: Olive Dialogue
+  m_Name: Olive Intro
   m_EditorClassIdentifier: 
   initalLeftCharacterSprite: {fileID: 21300000, guid: 5c05ffab5f672234b808cc0a781817db, type: 3}
-  initalRightCharacterSprite: {fileID: 21300000, guid: 653bb3678cf8195418481169106d3fc8, type: 3}
+  initalRightCharacterSprite: {fileID: 21300000, guid: 6049576c16fabc0469ed055e50c33cf4, type: 3}
   messages:
-  - name: Olive
-    characterSprite: {fileID: 21300000, guid: 653bb3678cf8195418481169106d3fc8, type: 3}
-    isRightCharacter: 1
-    text: 'Um.. '
-  - name: Olive
-    characterSprite: {fileID: 21300000, guid: 8669b7e81c3cc8141940e47e615c8da1, type: 3}
-    isRightCharacter: 1
-    text: Hello...?
-  - name: Player
+  - name: Marlon
     characterSprite: {fileID: 21300000, guid: 5c05ffab5f672234b808cc0a781817db, type: 3}
     isRightCharacter: 0
-    text: ...
+    italicized: 0
+    bold: 0
+    text: Um.. Hello?
   - name: Olive
-    characterSprite: {fileID: 21300000, guid: 653bb3678cf8195418481169106d3fc8, type: 3}
+    characterSprite: {fileID: 21300000, guid: 6049576c16fabc0469ed055e50c33cf4, type: 3}
     isRightCharacter: 1
-    text: It's okay, I don't talk much either...
+    italicized: 1
+    bold: 0
+    text: '*profuse weeping*'
+  - name: Marlon
+    characterSprite: {fileID: 21300000, guid: 5c05ffab5f672234b808cc0a781817db, type: 3}
+    isRightCharacter: 0
+    italicized: 0
+    bold: 0
+    text: ...

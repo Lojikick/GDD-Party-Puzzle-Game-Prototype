@@ -72,9 +72,10 @@ public class DialogueUI : MonoBehaviour, IPointerClickHandler
     {
         // Hide UI
         StartCoroutine(FadeUIOut(uiFadeDuration));
-
-        this.currentDialogue = null;
     }
+
+    // TEMP FIX
+    public bool IsReady() => this.currentDialogue == null;
 
     // This is called via buttons
     public void FirstMessage()
@@ -207,20 +208,19 @@ public class DialogueUI : MonoBehaviour, IPointerClickHandler
 
         // Set final values
         dialogueBoxCanvasGroup.alpha = 0f;
+
+        // Now
+        this.currentDialogue = null;
     }
 
     private IEnumerator FadeCharactersIn(float startScale, float finalScale, float duration)
     {
         // Set starting values
         leftCharacterImage.transform.localScale = Vector3.one * startScale;
-        var leftColor = leftCharacterImage.color;
-        leftColor.a = 0f;
-        leftCharacterImage.color = leftColor;
+        leftCharacterImage.color = Color.clear;
 
         rightCharacterImage.transform.localScale = Vector3.one * startScale;
-        var rightColor = rightCharacterImage.color;
-        rightColor.a = 0f;
-        rightCharacterImage.color = rightColor;
+        rightCharacterImage.color = Color.clear;
 
         float elapsed = 0;
         while (elapsed < duration)
@@ -229,12 +229,10 @@ public class DialogueUI : MonoBehaviour, IPointerClickHandler
 
             // Lerp values
             leftCharacterImage.transform.localScale = Vector3.one * Mathf.Lerp(startScale, finalScale, ratio);
-            leftColor.a = Mathf.Lerp(0f, characterDimAlpha, ratio);
-            leftCharacterImage.color = leftColor;
+            leftCharacterImage.color = Color.Lerp(Color.clear, Color.white, ratio);
 
             rightCharacterImage.transform.localScale = Vector3.one * Mathf.Lerp(startScale, finalScale, ratio);
-            rightColor.a = Mathf.Lerp(0f, characterDimAlpha, ratio);
-            rightCharacterImage.color = rightColor;
+            rightCharacterImage.color = Color.Lerp(Color.clear, Color.white, ratio);
 
             // Increment time
             elapsed += Time.deltaTime;
@@ -243,12 +241,10 @@ public class DialogueUI : MonoBehaviour, IPointerClickHandler
 
         // Set final values
         leftCharacterImage.transform.localScale = Vector3.one * finalScale;
-        leftColor.a = characterDimAlpha;
-        leftCharacterImage.color = leftColor;
+        leftCharacterImage.color = Color.white;
 
         rightCharacterImage.transform.localScale = Vector3.one * finalScale;
-        rightColor.a = characterDimAlpha;
-        rightCharacterImage.color = rightColor;
+        rightCharacterImage.color = Color.white;
     }
 
     private IEnumerator FadeCharactersOut(float startScale, float finalScale, float duration)
@@ -256,11 +252,9 @@ public class DialogueUI : MonoBehaviour, IPointerClickHandler
         // Set starting values
         leftCharacterImage.transform.localScale = Vector3.one * startScale;
         var leftColor = leftCharacterImage.color;
-        leftColor.a = 1f;
 
         rightCharacterImage.transform.localScale = Vector3.one * startScale;
         var rightColor = rightCharacterImage.color;
-        rightColor.a = 1f;
 
         float elapsed = 0;
         while (elapsed < duration)
@@ -269,12 +263,10 @@ public class DialogueUI : MonoBehaviour, IPointerClickHandler
 
             // Lerp values
             leftCharacterImage.transform.localScale = Vector3.one * (startScale + (finalScale - startScale) * ratio);
-            leftColor.a = 1 - ratio;
-            leftCharacterImage.color = leftColor;
+            leftCharacterImage.color = Color.Lerp(leftColor, Color.clear, ratio);
 
             rightCharacterImage.transform.localScale = Vector3.one * (startScale + (finalScale - startScale) * ratio);
-            rightColor.a = 1 - ratio;
-            rightCharacterImage.color = rightColor;
+            rightCharacterImage.color = Color.Lerp(rightColor, Color.clear, ratio);
 
             // Increment time
             elapsed += Time.deltaTime;
@@ -283,12 +275,10 @@ public class DialogueUI : MonoBehaviour, IPointerClickHandler
 
         // Set final values
         leftCharacterImage.transform.localScale = Vector3.one * finalScale;
-        leftColor.a = 0f;
-        leftCharacterImage.color = leftColor;
+        leftCharacterImage.color = Color.clear;
 
         rightCharacterImage.transform.localScale = Vector3.one * finalScale;
-        rightColor.a = 0f;
-        rightCharacterImage.color = rightColor;
+        rightCharacterImage.color = Color.clear;
     }
 
     private void DisplayCurrentMessage(DialogueMessage message)
@@ -299,14 +289,20 @@ public class DialogueUI : MonoBehaviour, IPointerClickHandler
         // If sprite is empty, the assume dialogue is narration
         if (message.characterSprite == null)
         {
-            messsageTextBox.fontStyle = FontStyles.Italic;
+            // messsageTextBox.fontStyle = FontStyles.Italic;
 
             DimCharacter(rightCharacterImage);
             DimCharacter(leftCharacterImage);
         }
         else
         {
-            messsageTextBox.fontStyle = FontStyles.Normal;
+            // Set font style
+            if (message.italicized)
+                messsageTextBox.fontStyle = FontStyles.Italic;
+            else if (message.bold)
+                messsageTextBox.fontStyle = FontStyles.Bold;
+            else
+                messsageTextBox.fontStyle = FontStyles.Normal;
 
             // Change character sprite
             if (message.isRightCharacter)

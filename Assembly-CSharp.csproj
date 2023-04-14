@@ -76,6 +76,7 @@
      <Compile Include="Assets\Scripts\UI\TransitionManager.cs" />
      <Compile Include="Assets\LeanTween\Examples\Scripts\LogoCinematic.cs" />
      <Compile Include="Assets\LeanTween\Examples\Scripts\GeneralAdvancedTechniques.cs" />
+     <Compile Include="Assets\Scripts\World\ScrollingBackground.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\UI\CookbookMenuUI.cs" />
      <Compile Include="Assets\Scripts\Puzzle Objects\OLD\LockedDoorHandler.cs" />

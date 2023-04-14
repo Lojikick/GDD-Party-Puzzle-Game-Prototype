@@ -19,6 +19,11 @@ public class PlayerMovement : MonoBehaviour
         movement.y = Input.GetAxisRaw("Vertical");
     }
 
+    public void StopMovement()
+    {
+        movement = Vector2.zero;
+    }
+
     //Fixed Update, will be used to handle movemement
     void FixedUpdate()
     {

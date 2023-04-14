@@ -119,7 +119,7 @@ Transform:
   - {fileID: 3729111243189317258}
   - {fileID: 3729111245082402140}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &3729111243307216193
 Rigidbody2D:
@@ -174,7 +174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52cc038a906c8174a876407bbe041f26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionRadius: 0.6
+  interactionRadius: 0.7
   interactionLayer:
     serializedVersion: 2
     m_Bits: 512

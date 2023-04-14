@@ -50,10 +50,10 @@ public class CookbookMenuUI : MonoBehaviour
         routine = StartCoroutine(FadeOut(fadeDuration));
     }
 
-    public void LoadLevel1()
+    public void StartLevel(int value)
     {
         // Change scenes
-        TransitionManager.instance.LoadSelectedScene(2);
+        TransitionManager.instance.LoadSelectedScene(value);
     }
 
     private IEnumerator FadeIn(float duration)

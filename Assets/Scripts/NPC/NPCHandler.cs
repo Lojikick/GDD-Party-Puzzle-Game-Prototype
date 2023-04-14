@@ -29,12 +29,17 @@ public class NPCHandler : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
+
+        // Set priority to a random value
+        agent.avoidancePriority = Random.Range(1, 99);
     }
 
     private void Start()
     {
+        // Wait a random amount of time
+        idleTimer = Random.Range(0, idleDuration);
+
         // Inital state is idle
-        idleTimer = idleDuration;
         state = NPCState.Idle;
     }
 
