@@ -30,7 +30,7 @@ public class TransitionManager : MonoBehaviour
 
     private void Start()
     {
-        OpenScene(Vector3.zero);
+        OpenScene();
     }
 
     public int GetSceneIndex()
@@ -38,20 +38,8 @@ public class TransitionManager : MonoBehaviour
         return SceneManager.GetActiveScene().buildIndex;
     }
 
-    public void OpenScene(Vector3 location)
+    public void OpenScene()
     {
-        // Save child location
-        var temp = backgroundTransform.position;
-
-        // Center tranform on location
-        if (location != Vector3.zero)
-            maskTransform.position = Camera.main.WorldToScreenPoint(location);
-        else
-            maskTransform.localPosition = Vector3.zero;
-
-        // Restore child location
-        backgroundTransform.position = temp;
-
         // Play animation
         animator.Play("Transition In");
 
@@ -67,7 +55,7 @@ public class TransitionManager : MonoBehaviour
         }
     }
 
-    public void LoadNextScene(Vector3 location)
+    public void LoadNextScene()
     {
         // Stop any background music
         if (GetSceneIndex() == 0)
@@ -85,10 +73,10 @@ public class TransitionManager : MonoBehaviour
         if (coroutine != null) StopCoroutine(coroutine);
 
         // Transition to next scene
-        coroutine = StartCoroutine(LoadScene(SceneManager.GetActiveScene().buildIndex + 1, location));
+        coroutine = StartCoroutine(LoadScene(SceneManager.GetActiveScene().buildIndex + 1));
     }
 
-    public void LoadSelectedScene(int buildIndex, Vector3 location)
+    public void LoadSelectedScene(int buildIndex)
     {
         // Stop any background music
         if (GetSceneIndex() == 0)
@@ -106,10 +94,10 @@ public class TransitionManager : MonoBehaviour
         if (coroutine != null) StopCoroutine(coroutine);
 
         // Transition to next scene
-        coroutine = StartCoroutine(LoadScene(buildIndex, location));
+        coroutine = StartCoroutine(LoadScene(buildIndex));
     }
 
-    public void ReloadScene(Vector3 location)
+    public void ReloadScene()
     {
         // Stop any background music
         if (GetSceneIndex() == 0)
@@ -127,10 +115,10 @@ public class TransitionManager : MonoBehaviour
         if (coroutine != null) StopCoroutine(coroutine);
 
         // Transition to same scene
-        coroutine = StartCoroutine(LoadScene(SceneManager.GetActiveScene().buildIndex, location));
+        coroutine = StartCoroutine(LoadScene(SceneManager.GetActiveScene().buildIndex));
     }
 
-    public void LoadMainMenuScene(Vector3 location)
+    public void LoadMainMenuScene()
     {
         // Stop any background music
         if (GetSceneIndex() == 0)
@@ -148,23 +136,11 @@ public class TransitionManager : MonoBehaviour
         if (coroutine != null) StopCoroutine(coroutine);
 
         // Transition to main menu, scene 0
-        coroutine = StartCoroutine(LoadScene(0, location));
+        coroutine = StartCoroutine(LoadScene(0));
     }
 
-    private IEnumerator LoadScene(int index, Vector3 location)
+    private IEnumerator LoadScene(int index)
     {
-        // Save child location
-        var temp = backgroundTransform.position;
-
-        // Move transform
-        if (location != Vector3.zero)
-            maskTransform.position = Camera.main.WorldToScreenPoint(location);
-        else
-            maskTransform.localPosition = Vector3.zero;
-
-        // Restore child location
-        backgroundTransform.position = temp;
-
         // Play animation
         animator.Play("Transition Out");
 
