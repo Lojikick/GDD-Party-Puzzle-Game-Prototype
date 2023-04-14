@@ -45,14 +45,6 @@ public class DialogueUI : MonoBehaviour, IPointerClickHandler
         instance = this;
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Open(test);
-        }
-    }
-
     public void OnPointerClick(PointerEventData eventData)
     {
         // Check for left clicking
@@ -93,8 +85,11 @@ public class DialogueUI : MonoBehaviour, IPointerClickHandler
     }
 
     // This is called via buttons
-    public void NextMessage()
+    public bool NextMessage()
     {
+        // Make sure nothing happens
+        if (!dialogueBoxCanvasGroup.interactable) return false;
+
         // Check if we are in the middle of the current dialogue
         if (routine != null)
         {
@@ -108,7 +103,7 @@ public class DialogueUI : MonoBehaviour, IPointerClickHandler
             StopCoroutine(routine);
             routine = null;
         }
-        else 
+        else
         {
             // Hide arrow
             HideArrow();
@@ -117,6 +112,7 @@ public class DialogueUI : MonoBehaviour, IPointerClickHandler
             if (currentIndex == currentDialogue.length - 1)
             {
                 Close();
+                return true;
             }
             // Else show next message
             else
@@ -125,6 +121,9 @@ public class DialogueUI : MonoBehaviour, IPointerClickHandler
                 DisplayCurrentMessage(currentDialogue[currentIndex]);
             }
         }
+
+        // Return whether you are done with dialogue
+        return false;
     }
 
     // This is called via buttons
@@ -148,7 +147,6 @@ public class DialogueUI : MonoBehaviour, IPointerClickHandler
     {
         return currentIndex >= currentDialogue.length - 1;
     }
-
 
     #region Helper Functions
 
@@ -190,7 +188,7 @@ public class DialogueUI : MonoBehaviour, IPointerClickHandler
         dialogueBoxCanvasGroup.alpha = 1f;
         dialogueBoxCanvasGroup.interactable = false;
         dialogueBoxCanvasGroup.blocksRaycasts = false;
-        
+
         // Fade characters out first
         yield return FadeCharactersOut(1f, 0.95f, characterFadeDuration);
 
@@ -410,7 +408,7 @@ public class DialogueUI : MonoBehaviour, IPointerClickHandler
             messsageTextBox.text += c;
             yield return new WaitForSeconds(textSpeed);
         }
-        
+
         // When finished, show arrow
         ShowArrow();
 
@@ -421,13 +419,13 @@ public class DialogueUI : MonoBehaviour, IPointerClickHandler
     private void ShowArrow()
     {
         nextArrowImage.enabled = true;
-        
+
         // If we are at the end of dialogue, show arrow downward
         if (currentIndex >= currentDialogue.length - 1)
             nextArrowImage.transform.parent.localEulerAngles = new Vector3(0, 0, -90);
         else
             nextArrowImage.transform.parent.localEulerAngles = Vector3.zero;
-        
+
     }
 
     private void HideArrow()
