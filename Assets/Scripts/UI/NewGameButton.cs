@@ -6,8 +6,7 @@ using UnityEngine.SceneManagement;
 public class NewGameButton : MonoBehaviour
 {
 	
-	public string path;
-	//"Assets/Scenes/Prototype Scene.unity"
+	[SerializeField] private int targetScene;
 	
     // Start is called before the first frame update
     void Start() {
@@ -17,7 +16,8 @@ public class NewGameButton : MonoBehaviour
     // Update is called once per frame
     void Update() {
         if (IsTouchingMouse(gameObject) && Input.GetMouseButtonDown(0)) {
-        	SceneManager.LoadScene(path);
+        	//SceneManager.LoadScene("Assets/Scenes/Prototype Scene.unity");
+			TransitionManager.instance.LoadSelectedScene(targetScene, Vector3.zero);
         }
     }
 	
