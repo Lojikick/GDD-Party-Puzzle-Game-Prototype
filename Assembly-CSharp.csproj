@@ -64,6 +64,7 @@
      <Compile Include="Assets\LeanTween\Examples\Scripts\PathSplineTrack.cs" />
      <Compile Include="Assets\Scripts\Puzzle Objects\OLD\PressurePlateHandler.cs" />
      <Compile Include="Assets\LeanTween\Examples\Scripts\PathBezier.cs" />
+     <Compile Include="Assets\Scripts\World\ProperLayerSort.cs" />
      <Compile Include="Assets\LeanTween\Examples\Scripts\PathSpline.cs" />
      <Compile Include="Assets\LeanTween\Testing\Testing240.cs" />
      <Compile Include="Assets\Scripts\UI\MainMenuManager.cs" />
@@ -80,6 +81,7 @@
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\UI\CookbookMenuUI.cs" />
      <Compile Include="Assets\Scripts\Puzzle Objects\OLD\LockedDoorHandler.cs" />
+     <Compile Include="Assets\Scripts\World\DoorHandler.cs" />
      <Compile Include="Assets\Scripts\Puzzle Objects\OLD\SpikesHandler.cs" />
      <Compile Include="Assets\LeanTween\Testing\TestingSceneSwitching.cs" />
      <Compile Include="Assets\LeanTween\Testing\Testing246.cs" />
@@ -102,6 +104,7 @@
      <Compile Include="Assets\LeanTween\Framework\LeanSmooth.cs" />
      <Compile Include="Assets\Scripts\UI\LogoUI.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
+     <Compile Include="Assets\Scripts\World\CameraRepositionTrigger.cs" />
      <Compile Include="Assets\Scripts\NPC\NPCHandler.cs" />
      <Compile Include="Assets\LeanTween\Framework\LeanAudio.cs" />
      <Compile Include="Assets\LeanTween\Framework\LTDescrOptional.cs" />
