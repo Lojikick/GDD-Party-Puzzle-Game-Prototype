@@ -21,6 +21,7 @@ public class MainMenuManager : MonoBehaviour
     {
         // Open scene in center
         TransitionManager.instance.OpenScene();
+        AudioManager.instance.PlayMusic("Title Screen Theme");
     }
 
     public void StartGame()
@@ -30,6 +31,7 @@ public class MainMenuManager : MonoBehaviour
 
         // Load next scene
         TransitionManager.instance.LoadNextScene();
+        AudioManager.instance.StopMusic("Title Screen Theme");
     }
 
     public void HowToPlay()
