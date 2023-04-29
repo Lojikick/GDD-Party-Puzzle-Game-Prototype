@@ -36,6 +36,8 @@ public class PlayerHandler : MonoBehaviour
                 // Movement
                 movement.CheckForMovement();
 
+                interaction.Check();
+
                 // Interaction
                 if (Input.GetKeyDown(interactKey) && DialogueUI.instance.IsReady())
                 {

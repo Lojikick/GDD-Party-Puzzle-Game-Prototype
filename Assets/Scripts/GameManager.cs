@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private int numberOfPuzzlesComplete;
+
     public static GameManager instance;
     private void Awake()
     {
@@ -17,11 +19,28 @@ public class GameManager : MonoBehaviour
 
         // Set the only instance to this
         instance = this;
+        // Keep between scenes
+        DontDestroyOnLoad(this);
     }
 
     private void Start()
     {
-        // set start screen to visible
-        SceneManager.LoadScene("Assets/Scenes/Title screen.unity");
+        // Initalize
+        numberOfPuzzlesComplete = 0;
+    }
+
+    public void Reset()
+    {
+        numberOfPuzzlesComplete = 0;
+    }
+
+    public void IncrementNumPuzzles()
+    {
+        numberOfPuzzlesComplete++;
+    }
+
+    public int GetNumPuzzles()
+    {
+        return numberOfPuzzlesComplete;
     }
 }

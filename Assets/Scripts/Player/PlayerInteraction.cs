@@ -8,6 +8,37 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] private LayerMask interactionLayer;
     [SerializeField] private NPCHandler nPCHandler;
 
+    [SerializeField] private InteractableHandler interactable;
+
+    public void Check()
+    {
+        // Look for any interactions in range
+        var hit = Physics2D.OverlapCircle(transform.position, interactionRadius, interactionLayer);
+        if (hit && hit.TryGetComponent(out InteractableHandler interact))
+        {
+            // If same, then do nothign
+            if (interact == interactable)
+            {
+                return;
+            }
+
+            // Show UI
+            interact.Show();
+            // Save ref
+            interactable = interact;
+        }
+        else
+        {
+            // Remove UI
+            if (interactable != null)
+            {
+                interactable.Hide();
+            }
+
+            interactable = null;
+        }
+    }
+
     public bool CheckForInteraction()
     {
         // Look for NPC in range
