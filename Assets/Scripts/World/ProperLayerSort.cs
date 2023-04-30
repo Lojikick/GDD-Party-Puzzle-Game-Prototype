@@ -25,7 +25,7 @@ public class ProperLayerSort : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.green;
+        Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position - new Vector3(0, offset, 0), 0.15f);
     }
 }

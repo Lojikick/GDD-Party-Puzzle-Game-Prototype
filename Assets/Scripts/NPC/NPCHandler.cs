@@ -5,9 +5,9 @@ using UnityEngine.AI;
 
 
 
-public class NPCHandler : MonoBehaviour
+public class NPCHandler : Interactable
 {
-    private enum NPCState { Idle, Roaming, Interacting };
+    private enum NPCState { Idle, Roaming, Interacting, Stationary };
 
     [Header("Components")]
     [SerializeField] private NavMeshAgent agent;
@@ -21,11 +21,14 @@ public class NPCHandler : MonoBehaviour
 
     [Header("Debugging")]
     [SerializeField] private NPCState state;
+    [SerializeField] private DialogueUI ui;
 
     private float idleTimer;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
@@ -36,17 +39,24 @@ public class NPCHandler : MonoBehaviour
 
     private void Start()
     {
+        // Cache UI
+        ui = DialogueUI.instance;
+
         // Wait a random amount of time
         idleTimer = Random.Range(0, idleDuration);
 
-        // Inital state is idle
-        state = NPCState.Idle;
+        // Don't move
+        state = NPCState.Stationary;
     }
 
     private void Update()
     {
         switch (state)
         {
+            case NPCState.Stationary:
+                // Default state
+
+                break;
             case NPCState.Idle:
                 // Stand still
                 idleTimer -= Time.deltaTime;
@@ -83,6 +93,48 @@ public class NPCHandler : MonoBehaviour
 
     }
 
+    public override bool Interact()
+    {
+        bool sucess;
+
+        if (ui.IsOpen())
+        {
+            if (ui.IsDone())
+            {
+                // Close UI
+                ui.Close();
+                sucess = false;
+            }
+            else
+            {
+                // Increment message
+                ui.NextMessage();
+                sucess = true;
+            }
+        }
+        else
+        {
+            // If UI is FULLY closed
+            if (ui.IsClosed())
+            {
+                // Open dialogue UI
+                var dialogue = GetProperDialogue();
+                ui.Open(dialogue);
+                sucess = true;
+            }
+            else if (ui.IsOpening())
+            {
+                sucess = true;
+            }
+            else
+            {
+                sucess = false;
+            }
+        }
+
+        return sucess;
+    }
+
     private void GoToRandomLocation()
     {
         // Find a random location around NPC within roam radius
@@ -91,25 +143,12 @@ public class NPCHandler : MonoBehaviour
             position = Random.insideUnitCircle * roamRadius;
     }
 
-    public Dialogue StartInteraction()
+    private Dialogue GetProperDialogue()
     {
-        // Stop agent from moving
-        agent.isStopped = true;
+        // TODO
+        // Decide dialogue based on game state
 
-        // Change state
-        state = NPCState.Interacting;
-
-        // Return approperiate dialogue
         return dialogue;
-    }
-
-    public void EndInteraction()
-    {
-        // Set idle timer
-        idleTimer = idleDuration;
-
-        // Change state
-        state = NPCState.Idle;
     }
 
     private void OnDrawGizmosSelected()

@@ -17,7 +17,7 @@ public class PlayerInventory : MonoBehaviour
     void Update()
     {
         // Check input
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             // Check if you are on an item
             if (IsOnItem())
@@ -63,6 +63,6 @@ public class PlayerInventory : MonoBehaviour
         // TODO
     }
 
-   
+
 
 }
