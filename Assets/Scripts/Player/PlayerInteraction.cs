@@ -4,100 +4,118 @@ using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour
 {
+    [Header("Settings")]
     [SerializeField] private float interactionRadius;
     [SerializeField] private LayerMask interactionLayer;
+    [SerializeField] private Vector3 interactionOffset;
     [SerializeField] private NPCHandler nPCHandler;
 
-    [SerializeField] private InteractableHandler interactable;
+    [Header("Debugging")]
+    [SerializeField] private Interactable interactable;
 
-    public void Check()
+    public void SearchForInteractables()
     {
-        // Look for any interactions in range
-        var hit = Physics2D.OverlapCircle(transform.position, interactionRadius, interactionLayer);
-        if (hit && hit.TryGetComponent(out InteractableHandler interact))
+        // Look for any interactables in range
+        var hit = Physics2D.OverlapCircle(transform.position + interactionOffset, interactionRadius, interactionLayer);
+        if (hit && hit.TryGetComponent(out Interactable interactable))
         {
-            // If same, then do nothign
-            if (interact == interactable)
-            {
-                return;
-            }
+            // If same one, then do nothing
+            if (this.interactable == interactable) return;
 
-            // Show UI
-            interact.Show();
             // Save ref
-            interactable = interact;
+            this.interactable = interactable;
+
+            // Highlight it
+            this.interactable.Highlight();
         }
         else
         {
-            // Remove UI
-            if (interactable != null)
+            // IF we did have one before
+            if (this.interactable != null)
             {
-                interactable.Hide();
+                // De-select it
+                this.interactable.UnHighlight();
             }
 
-            interactable = null;
+            // Remove ref
+            this.interactable = null;
         }
     }
 
-    public bool CheckForInteraction()
+    public bool AttemptInteraction()
     {
-        // Look for NPC in range
-        var hit = Physics2D.OverlapCircle(transform.position, interactionRadius, interactionLayer);
-        if (hit && hit.TryGetComponent(out NPCHandler NPCHandler))
-        {
-            // Open dialogue with NPC
-            var dialogue = NPCHandler.StartInteraction();
-            DialogueUI.instance.Open(dialogue);
+        // Do nothing if nothing to interact with
+        if (interactable == null)
+            return false;
 
-            // TODO FIX THIS
-            nPCHandler = NPCHandler;
+        // Interact
+        bool sucess = interactable.Interact();
 
-            return true;
-        }
+        // Reset interaction
+        if (!sucess) interactable = null;
 
-        return false;
+        return sucess;
     }
 
-    public bool CheckForCookbook()
-    {
-        // Look for NPC in range
-        var hit = Physics2D.OverlapCircle(transform.position, interactionRadius, interactionLayer);
-        if (hit && hit.TryGetComponent(out CookbookHandler cookbook))
-        {
-            // Open cookbook
-            CookbookMenuUI.instance.Show();
+    // public bool CheckForInteraction()
+    // {
+    //     // Look for NPC in range
+    //     var hit = Physics2D.OverlapCircle(transform.position, interactionRadius, interactionLayer);
+    //     if (hit && hit.TryGetComponent(out NPCHandler NPCHandler))
+    //     {
+    //         // Open dialogue with NPC
+    //         var dialogue = NPCHandler.StartInteraction();
+    //         DialogueUI.instance.Open(dialogue);
 
-            return true;
-        }
+    //         // TODO FIX THIS
+    //         nPCHandler = NPCHandler;
 
-        return false;
-    }
+    //         return true;
+    //     }
 
-    public bool TalkWithNPC()
-    {
-        // If you are not talking to NPC, finish here
-        if (nPCHandler == null) return true;
+    //     return false;
+    // }
 
-        // Increment message
-        bool finished = DialogueUI.instance.NextMessage();
-        if (finished)
-        {
-            nPCHandler = null;
-        }
+    // public bool CheckForCookbook()
+    // {
+    //     // Look for NPC in range
+    //     var hit = Physics2D.OverlapCircle(transform.position, interactionRadius, interactionLayer);
+    //     if (hit && hit.TryGetComponent(out CookbookHandler cookbook))
+    //     {
+    //         // Open cookbook
+    //         CookbookMenuUI.instance.Show();
 
-        // Return result
-        return finished;
-    }
+    //         return true;
+    //     }
 
-    public void CloseCookbook()
-    {
-        // Close cookbook
-        CookbookMenuUI.instance.Hide();
-    }
+    //     return false;
+    // }
+
+    // public bool TalkWithNPC()
+    // {
+    //     // If you are not talking to NPC, finish here
+    //     if (nPCHandler == null) return true;
+
+    //     // Increment message
+    //     bool finished = DialogueUI.instance.NextMessage();
+    //     if (finished)
+    //     {
+    //         nPCHandler = null;
+    //     }
+
+    //     // Return result
+    //     return finished;
+    // }
+
+    // public void CloseCookbook()
+    // {
+    //     // Close cookbook
+    //     CookbookMenuUI.instance.Hide();
+    // }
 
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, interactionRadius);
+        Gizmos.DrawWireSphere(transform.position + interactionOffset, interactionRadius);
     }
 }

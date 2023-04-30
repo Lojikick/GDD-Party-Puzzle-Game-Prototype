@@ -5,8 +5,10 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class DialogueUI : MonoBehaviour, IPointerClickHandler
+public class DialogueUI : MonoBehaviour
 {
+    private enum DialogueState { Opening, Open, Closing, Closed }
+
     [Header("Components")]
     [SerializeField] private Dialogue currentDialogue;
     [SerializeField] private CanvasGroup dialogueBoxCanvasGroup;
@@ -29,7 +31,7 @@ public class DialogueUI : MonoBehaviour, IPointerClickHandler
 
     [Header("Debugging")]
     [SerializeField] private int currentIndex;
-    public Dialogue test;
+    [SerializeField] private DialogueState state;
 
     private Coroutine routine;
 
@@ -43,25 +45,24 @@ public class DialogueUI : MonoBehaviour, IPointerClickHandler
             return;
         }
         instance = this;
-    }
 
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        // Check for left clicking
-        if (eventData.button == PointerEventData.InputButton.Left)
-            NextMessage();
+        state = DialogueState.Closed;
     }
 
     // Open UI
     public void Open(Dialogue dialogue)
     {
         // Error checking
-        if (dialogue == null) throw new System.Exception("ATTEMPTED TO OPEN NULL DIALOGUE!");
+        if (dialogue == null) throw new System.Exception("CANNOT OPEN NULL DIALOGUE!");
+        if (this.currentDialogue == dialogue) return;
 
         this.currentDialogue = dialogue;
 
         // Setup character values
         IntialSetup(currentDialogue);
+
+        // Change state
+        state = DialogueState.Opening;
 
         // Show characters
         StartCoroutine(FadeUIIn(uiFadeDuration));
@@ -70,12 +71,18 @@ public class DialogueUI : MonoBehaviour, IPointerClickHandler
     // Close UI
     public void Close()
     {
+        // Change state
+        state = DialogueState.Closing;
+
         // Hide UI
         StartCoroutine(FadeUIOut(uiFadeDuration));
     }
 
-    // TEMP FIX
-    public bool IsReady() => this.currentDialogue == null;
+    public bool IsOpen() => state == DialogueState.Open;
+    public bool IsOpening() => state == DialogueState.Opening;
+    public bool IsClosed() => state == DialogueState.Closed;
+    public bool IsDone() => currentIndex >= currentDialogue.length - 1;
+
 
     // This is called via buttons
     public void FirstMessage()
@@ -86,10 +93,10 @@ public class DialogueUI : MonoBehaviour, IPointerClickHandler
     }
 
     // This is called via buttons
-    public bool NextMessage()
+    public void NextMessage()
     {
         // Make sure nothing happens
-        if (!dialogueBoxCanvasGroup.interactable) return false;
+        if (!dialogueBoxCanvasGroup.interactable) return;
 
         // Check if we are in the middle of the current dialogue
         if (routine != null)
@@ -112,8 +119,7 @@ public class DialogueUI : MonoBehaviour, IPointerClickHandler
             // If we are at the end of dialogue
             if (currentIndex == currentDialogue.length - 1)
             {
-                Close();
-                return true;
+                // Do nothing
             }
             // Else show next message
             else
@@ -122,9 +128,6 @@ public class DialogueUI : MonoBehaviour, IPointerClickHandler
                 DisplayCurrentMessage(currentDialogue[currentIndex]);
             }
         }
-
-        // Return whether you are done with dialogue
-        return false;
     }
 
     // This is called via buttons
@@ -142,11 +145,6 @@ public class DialogueUI : MonoBehaviour, IPointerClickHandler
         currentIndex = currentDialogue.length - 1;
 
         DisplayCurrentMessage(currentDialogue[currentIndex]);
-    }
-
-    public bool IsDone()
-    {
-        return currentIndex >= currentDialogue.length - 1;
     }
 
     #region Helper Functions
@@ -181,6 +179,9 @@ public class DialogueUI : MonoBehaviour, IPointerClickHandler
 
         // Display first message now
         FirstMessage();
+
+        // Change state
+        state = DialogueState.Open;
     }
 
     private IEnumerator FadeUIOut(float duration)
@@ -209,8 +210,11 @@ public class DialogueUI : MonoBehaviour, IPointerClickHandler
         // Set final values
         dialogueBoxCanvasGroup.alpha = 0f;
 
-        // Now
+        // Now remove dialogue
         this.currentDialogue = null;
+
+        // Change state
+        state = DialogueState.Closed;
     }
 
     private IEnumerator FadeCharactersIn(float startScale, float finalScale, float duration)

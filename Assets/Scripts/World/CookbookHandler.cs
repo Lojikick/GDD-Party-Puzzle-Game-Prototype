@@ -2,7 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CookbookHandler : MonoBehaviour
+public class CookbookHandler : Interactable
 {
-    // TODO
+    public override bool Interact()
+    {
+        return CookbookMenuUI.instance.Toggle();
+    }
 }

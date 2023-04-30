@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InteractableHandler : MonoBehaviour
+public class InteractionUI : MonoBehaviour
 {
     [SerializeField] private GameObject interactionIndicatorGameObject;
     [SerializeField] private CanvasGroup canvasGroup;
 
     [SerializeField] private float offset;
     [SerializeField] private float duration;
+    [SerializeField] private float targetAlpha;
 
     private void Start()
     {
@@ -22,7 +23,7 @@ public class InteractableHandler : MonoBehaviour
 
     public void Show()
     {
-        canvasGroup.alpha = 0.5f;
+        canvasGroup.alpha = targetAlpha;
         LeanTween.resume(interactionIndicatorGameObject);
     }
 

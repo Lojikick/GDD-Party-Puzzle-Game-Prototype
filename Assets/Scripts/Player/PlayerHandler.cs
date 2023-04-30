@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerHandler : MonoBehaviour
 {
-    private enum PlayerState { Idle, Walking, Talking, Reading }
+    private enum PlayerState { Idle, Walking, Interacting, Reading }
 
     [Header("Components")]
     [SerializeField] private PlayerMovement movement;
@@ -36,56 +36,39 @@ public class PlayerHandler : MonoBehaviour
                 // Movement
                 movement.CheckForMovement();
 
-                interaction.Check();
+                // Check for interactables
+                interaction.SearchForInteractables();
 
-                // Interaction
-                if (Input.GetKeyDown(interactKey) && DialogueUI.instance.IsReady())
+                // Attempt to interact
+                if (Input.GetKeyDown(interactKey))
                 {
-                    // Look for any NPCs to talk to
-                    bool found = interaction.CheckForInteraction();
-                    if (found)
+                    // If interaction attempt sucesses
+                    if (interaction.AttemptInteraction())
                     {
+                        // Stop any movement
                         movement.StopMovement();
 
-                        // Change state
-                        playerState = PlayerState.Talking;
-                    }
-
-                    // Look for the cookbook
-                    found = interaction.CheckForCookbook();
-                    if (found)
-                    {
-                        movement.StopMovement();
-
-                        // Change state
-                        playerState = PlayerState.Reading;
+                        // Change states
+                        playerState = PlayerState.Interacting;
                     }
                 }
 
                 break;
-            case PlayerState.Talking:
+            case PlayerState.Interacting:
 
+                // Continue to check for interacting
                 if (Input.GetKeyDown(interactKey))
                 {
-                    // Talk to NPC
-                    bool finished = interaction.TalkWithNPC();
-                    if (finished)
+                    // If we fail
+                    if (!interaction.AttemptInteraction())
                     {
-                        // Change state
+                        // Change states
                         playerState = PlayerState.Idle;
                     }
                 }
 
                 break;
             case PlayerState.Reading:
-
-                if (Input.GetKeyDown(interactKey))
-                {
-                    interaction.CloseCookbook();
-
-                    // Change state
-                    playerState = PlayerState.Idle;
-                }
 
                 break;
             default:
