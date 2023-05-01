@@ -9,11 +9,18 @@ public class CookbookMenuUI : MonoBehaviour
 
     [Header("Components")]
     [SerializeField] private CanvasGroup canvasGroup;
-    [SerializeField] private Button initalButton;
+
+    [Header("Page 1")]
+    [SerializeField] private CanvasGroup canvasGroup1;
+    [SerializeField] private Button initalButton1;
+    [Header("Page 2")]
+    [SerializeField] private CanvasGroup canvasGroup2;
+    [SerializeField] private Button initalButton2;
 
     [Header("Settings")]
     [SerializeField] private float fadeOffset;
     [SerializeField] private float fadeDuration;
+    [SerializeField] private int maxLevels;
 
     [Header("Debugging")]
     [SerializeField] private CookbookState state;
@@ -73,6 +80,21 @@ public class CookbookMenuUI : MonoBehaviour
         routine = StartCoroutine(FadeOut(fadeDuration));
     }
 
+    private void Update()
+    {
+        // Make sure book is open
+        if (state != CookbookState.Open) return;
+
+        if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
+        {
+            ShowPage(1);
+        }
+        else if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
+        {
+            ShowPage(2);
+        }
+    }
+
     public bool Toggle()
     {
         bool sucess;
@@ -104,6 +126,9 @@ public class CookbookMenuUI : MonoBehaviour
 
     public void StartLevel(int value)
     {
+        // Do nothing
+        if (value > maxLevels + 1) return;
+
         // Change scenes
         TransitionManager.instance.LoadSelectedScene(value);
     }
@@ -134,8 +159,8 @@ public class CookbookMenuUI : MonoBehaviour
         canvasGroup.interactable = true;
         canvasGroup.blocksRaycasts = true;
 
-        // Focus on button
-        initalButton.Select();
+        // Display page 1
+        ShowPage(1);
 
         // Change state
         state = CookbookState.Open;
@@ -173,5 +198,49 @@ public class CookbookMenuUI : MonoBehaviour
         state = CookbookState.Closed;
 
         routine = null;
+    }
+
+    private void ShowPage(int pageNum)
+    {
+        if (pageNum == 1)
+        {
+            canvasGroup1.alpha = 1f;
+            canvasGroup1.interactable = true;
+            canvasGroup1.blocksRaycasts = true;
+
+            // Focus on button
+            initalButton1.Select();
+
+            // Hide other page
+            HidePage(2);
+        }
+        else if (pageNum == 2)
+        {
+            canvasGroup2.alpha = 1f;
+            canvasGroup2.interactable = true;
+            canvasGroup2.blocksRaycasts = true;
+
+            // Focus on button
+            initalButton2.Select();
+
+            // Hide other page
+            HidePage(1);
+        }
+    }
+
+    private void HidePage(int pageNum)
+    {
+        if (pageNum == 1)
+        {
+            canvasGroup1.alpha = 0f;
+            canvasGroup1.interactable = false;
+            canvasGroup1.blocksRaycasts = false;
+        }
+        else if (pageNum == 2)
+        {
+            canvasGroup2.alpha = 0f;
+            canvasGroup2.interactable = false;
+            canvasGroup2.blocksRaycasts = false;
+        }
     }
 }

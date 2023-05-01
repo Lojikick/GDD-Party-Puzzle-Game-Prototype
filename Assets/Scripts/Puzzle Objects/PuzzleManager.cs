@@ -7,11 +7,18 @@ public class PuzzleManager : MonoBehaviour
 {
     [Header("Components")]
     [SerializeField] private Tilemap groundTilemap;
-    [SerializeField] private Tilemap wallTilemap;
+    [SerializeField] private Tilemap indicatorTilemap;
     [SerializeField] private GameObject ingredientPrefab;
+    [SerializeField] private GameObject puddingPrefab;
 
     [Header("Settings")]
+
     [SerializeField] private Tile breadTile;
+    [SerializeField] private Tile validSelectTile;
+    [SerializeField] private Tile invalidSelectTile;
+
+    [Header("Debugging")]
+    [SerializeField] private Vector3Int selectedCell;
 
     public static PuzzleManager instance;
     private void Awake()
@@ -53,7 +60,7 @@ public class PuzzleManager : MonoBehaviour
 
     public bool MixIngredients(Ingredient ingredient1, Ingredient ingredient2, Vector3 startingPosition, Vector2 facingDirection)
     {
-        // Dough (Flour + Milk) = 0 + 1 = 1
+        // Bread (Flour + Milk) = 0 + 1 = 1
         // Pudding (Sugar + Milk) = 3 + 1 = 4
         // Noodle  (Flour + Egg) = 0 + 2 = 2
         // Baking Soda + Vinegar (Flour + Sugar) = 0 + 3 = 3
@@ -61,12 +68,12 @@ public class PuzzleManager : MonoBehaviour
         if (sum > 4)
             return false;
 
-        // Vector3Int cellPosition = groundTilemap.WorldToCell(startingPosition);
+        Vector3Int cellPosition = groundTilemap.WorldToCell(startingPosition);
         Vector3Int facingCellPosition = groundTilemap.WorldToCell(startingPosition + (Vector3)facingDirection);
 
         switch (sum)
         {
-            case 1: // Dough/Bread
+            case 1: // Bread
                 print("Combined into Bread.");
                 return PlaceBread(facingCellPosition);
             case 2: // Noodle
@@ -79,8 +86,7 @@ public class PuzzleManager : MonoBehaviour
                 break;
             case 4: // Pudding
                 print("Combined into Pudding.");
-                // TODO
-                break;
+                return PlacePudding(facingCellPosition);
             default:
                 throw new System.Exception("Unimplemented Combination: " + sum);
         }
@@ -100,5 +106,88 @@ public class PuzzleManager : MonoBehaviour
         groundTilemap.SetTile(position, breadTile);
 
         return true;
+    }
+
+    private bool PlacePudding(Vector3Int position)
+    {
+        // Make sure there is ground
+        if (!groundTilemap.HasTile(position))
+        {
+            print("Must place pudding on a valid ground tile.");
+            return false;
+        }
+
+        // Create GO
+        var worldPosition = groundTilemap.GetCellCenterWorld(position);
+        Instantiate(puddingPrefab, worldPosition, Quaternion.identity);
+
+        return true;
+    }
+
+    public bool IfOutOfBounds(Vector3 position)
+    {
+        // Make sure there is ground
+        var cellPosition = groundTilemap.WorldToCell(position);
+        return !groundTilemap.HasTile(cellPosition);
+    }
+
+    public void SelectPuddingPosition(Vector3 position)
+    {
+        // Deselect
+        if (this.selectedCell != Vector3Int.back)
+        {
+            indicatorTilemap.SetTile(this.selectedCell, null);
+        }
+
+        if (position == Vector3.back)
+        {
+            // Dip
+            return;
+        }
+
+        var cellPosition = groundTilemap.WorldToCell(position);
+
+        // If on ground
+        if (groundTilemap.HasTile(cellPosition))
+        {
+            indicatorTilemap.SetTile(cellPosition, validSelectTile);
+        }
+        else
+        {
+            indicatorTilemap.SetTile(cellPosition, invalidSelectTile);
+        }
+
+        // Save
+        this.selectedCell = cellPosition;
+    }
+
+    public void SelectBreadPosition(Vector3 position)
+    {
+        // Deselect
+        if (this.selectedCell != Vector3Int.back)
+        {
+            indicatorTilemap.SetTile(this.selectedCell, null);
+        }
+
+        if (position == Vector3.back)
+        {
+            // Dip
+            return;
+        }
+
+        var cellPosition = groundTilemap.WorldToCell(position);
+
+        // If on ground
+        if (groundTilemap.HasTile(cellPosition))
+        {
+            indicatorTilemap.SetTile(cellPosition, invalidSelectTile);
+        }
+        else
+        {
+            indicatorTilemap.SetTile(cellPosition, validSelectTile);
+        }
+
+        // Save
+        this.selectedCell = cellPosition;
     }
 }

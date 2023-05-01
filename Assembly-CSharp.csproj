@@ -40,7 +40,6 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.2.1f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\UI\NewGameButton.cs" />
      <Compile Include="Assets\LeanTween\Testing\TestingOptionalCancel.cs" />
      <Compile Include="Assets\LeanTween\Examples\Scripts\GeneralCameraShake.cs" />
      <Compile Include="Assets\LeanTween\Examples\Scripts\TestingUnitTests.cs" />
@@ -48,6 +47,7 @@
      <Compile Include="Assets\Scripts\CutsceneManager.cs" />
      <Compile Include="Assets\LeanTween\Framework\LTDescr.cs" />
      <Compile Include="Assets\Scripts\UI\ButtonAudio.cs" />
+     <Compile Include="Assets\Scripts\Puzzle Objects\PuddingHandler.cs" />
      <Compile Include="Assets\LeanTween\Framework\LeanTest.cs" />
      <Compile Include="Assets\LeanTween\Testing\TestingIssue2.cs" />
      <Compile Include="Assets\LeanTween\Testing\Testing248.cs" />
@@ -104,6 +104,7 @@
      <Compile Include="Assets\LeanTween\Framework\LeanTween.cs" />
      <Compile Include="Assets\Scripts\UI\InventoryUI.cs" />
      <Compile Include="Assets\LeanTween\Framework\LeanTweenExt.cs" />
+     <Compile Include="Assets\Scripts\UI\PauseMenu.cs" />
      <Compile Include="Assets\Scripts\Audio\AudioManager.cs" />
      <Compile Include="Assets\Scripts\World\EntranceHandler.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerInventory.cs" />

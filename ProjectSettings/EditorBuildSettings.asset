@@ -9,27 +9,18 @@ EditorBuildSettings:
     path: Assets/Scenes/Title screen.unity
     guid: 782fda6567e27417aade454af73c7a79
   - enabled: 1
-    path: Assets/Scenes/Intro Cutscene.unity
-    guid: b769777435f4188478fe677987a35807
-  - enabled: 1
     path: Assets/Scenes/Bakery Overworld.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/Funeral Scene.unity
-    guid: 6d9a9c12936c0d54cbec40f73ed1c693
-  - enabled: 1
-    path: Assets/Scenes/Puzzle 1.unity
+    path: Assets/Scenes/Puzzle 5.unity
     guid: b6191bd648aa7c249b3328c7b17c1139
   - enabled: 1
     path: Assets/Scenes/Puzzle 2.unity
-    guid: 85649fc1e84346b49a37f869c17a5847
+    guid: 9dd8862ecefd4734bb5a198d8de1427d
   - enabled: 1
     path: Assets/Scenes/Puzzle 3.unity
-    guid: f0a21ce0374a95b47a7a5476d09febdc
+    guid: 273c227ab0133924fba4c8b42116ab23
   - enabled: 1
-    path: Assets/Scenes/Memory Scenes.unity
-    guid: 2ae824f48724aad42b7c407d1f97d23b
-  - enabled: 0
-    path: Assets/Scenes/Greeting World.unity
-    guid: 17639a1474b6a6946b8226e64d5d9b54
+    path: Assets/Scenes/Intro Cutscene.unity
+    guid: b769777435f4188478fe677987a35807
   m_configObjects: {}
