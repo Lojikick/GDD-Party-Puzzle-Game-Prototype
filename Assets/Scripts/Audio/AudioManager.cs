@@ -126,6 +126,7 @@ public class AudioManager : MonoBehaviour
         {
             // Set volume
             sound.audioSource.volume = sound.volume;
+            sound.audioSource.loop = sound.loop;
 
             // Play sound
             sound.audioSource.Play();

@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dab66c5a9f99644e98aa9612c00337b, type: 3}
+  m_Name: Intro Monologue
+  m_EditorClassIdentifier: 
+  initalLeftCharacterSprite: {fileID: 21300000, guid: 5c05ffab5f672234b808cc0a781817db, type: 3}
+  initalRightCharacterSprite: {fileID: 0}
+  messages:
+  - name: Marlon
+    characterSprite: {fileID: 21300000, guid: 5c05ffab5f672234b808cc0a781817db, type: 3}
+    isRightCharacter: 0
+    italicized: 0
+    sfx: 
+    bold: 0
+    text: Another day.
+  - name: Marlon
+    characterSprite: {fileID: 21300000, guid: 5c05ffab5f672234b808cc0a781817db, type: 3}
+    isRightCharacter: 0
+    italicized: 0
+    sfx: Jumpscare SFX
+    bold: 0
+    text: "I\u2019ve owned Marlon\u2019s Munchies for over two decades now.\r\n"
+  - name: Marlon
+    characterSprite: {fileID: 21300000, guid: 5c05ffab5f672234b808cc0a781817db, type: 3}
+    isRightCharacter: 0
+    italicized: 0
+    sfx: 
+    bold: 0
+    text: "Started the first bakery in town, even though my family said it would
+      never take off.\r"

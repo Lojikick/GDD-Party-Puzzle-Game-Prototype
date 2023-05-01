@@ -4,69 +4,61 @@ using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour
 {
+    [Header("Settings")]
     [SerializeField] private float interactionRadius;
     [SerializeField] private LayerMask interactionLayer;
-    [SerializeField] private NPCHandler nPCHandler;
+    [SerializeField] private Vector3 interactionOffset;
 
-    public bool CheckForInteraction()
+    [Header("Debugging")]
+    [SerializeField] private Interactable interactable;
+
+    public void SearchForInteractables()
     {
-        // Look for NPC in range
-        var hit = Physics2D.OverlapCircle(transform.position, interactionRadius, interactionLayer);
-        if (hit && hit.TryGetComponent(out NPCHandler NPCHandler))
+        // Look for any interactables in range
+        var hit = Physics2D.OverlapCircle(transform.position + interactionOffset, interactionRadius, interactionLayer);
+        if (hit && hit.TryGetComponent(out Interactable interactable))
         {
-            // Open dialogue with NPC
-            var dialogue = NPCHandler.StartInteraction();
-            DialogueUI.instance.Open(dialogue);
+            // If same one, then do nothing
+            if (this.interactable == interactable) return;
 
-            // TODO FIX THIS
-            nPCHandler = NPCHandler;
+            // Save ref
+            this.interactable = interactable;
 
-            return true;
+            // Highlight it
+            this.interactable.Highlight();
         }
+        else
+        {
+            // IF we did have one before
+            if (this.interactable != null)
+            {
+                // De-select it
+                this.interactable.UnHighlight();
+            }
 
-        return false;
+            // Remove ref
+            this.interactable = null;
+        }
     }
 
-    public bool CheckForCookbook()
+    public bool AttemptInteraction()
     {
-        // Look for NPC in range
-        var hit = Physics2D.OverlapCircle(transform.position, interactionRadius, interactionLayer);
-        if (hit && hit.TryGetComponent(out CookbookHandler cookbook))
-        {
-            // Open cookbook
-            CookbookMenuUI.instance.Show();
+        // Do nothing if nothing to interact with
+        if (interactable == null)
+            return false;
 
-            return true;
-        }
+        // Interact
+        bool sucess = interactable.Interact();
 
-        return false;
-    }
+        // Reset interaction
+        if (!sucess) interactable = null;
 
-    public bool TalkWithNPC()
-    {
-        // If you are not talking to NPC, finish here
-        if (nPCHandler == null) return true;
-
-        // Increment message
-        bool finished = DialogueUI.instance.NextMessage();
-        if (finished)
-        {
-            nPCHandler = null;
-        }
-
-        // Return result
-        return finished;
-    }
-
-    public void CloseCookbook()
-    {
-        // Close cookbook
-        CookbookMenuUI.instance.Hide();
+        return sucess;
     }
 
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, interactionRadius);
+        Gizmos.DrawWireSphere(transform.position + interactionOffset, interactionRadius);
     }
 }

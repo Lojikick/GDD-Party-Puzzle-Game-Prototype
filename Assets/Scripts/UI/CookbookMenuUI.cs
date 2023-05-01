@@ -5,12 +5,18 @@ using UnityEngine.UI;
 
 public class CookbookMenuUI : MonoBehaviour
 {
+    private enum CookbookState { Opening, Open, Closing, Closed }
+
     [Header("Components")]
     [SerializeField] private CanvasGroup canvasGroup;
+    [SerializeField] private Button initalButton;
 
     [Header("Settings")]
     [SerializeField] private float fadeOffset;
     [SerializeField] private float fadeDuration;
+
+    [Header("Debugging")]
+    [SerializeField] private CookbookState state;
 
     private Vector3 initalPosition;
     private bool isVisible;
@@ -28,12 +34,16 @@ public class CookbookMenuUI : MonoBehaviour
         instance = this;
 
         initalPosition = transform.localPosition;
+        state = CookbookState.Closed;
     }
 
     public void Show()
     {
         // Don't do anything if in motion
         if (routine != null) return;
+
+        // Change state
+        state = CookbookState.Opening;
 
         // Fade in UI
         if (routine != null) StopCoroutine(routine);
@@ -45,9 +55,41 @@ public class CookbookMenuUI : MonoBehaviour
         // Do nothing if already not visible
         if (routine != null) return;
 
+        // Change state
+        state = CookbookState.Closing;
+
         // Fade out UI
         if (routine != null) StopCoroutine(routine);
         routine = StartCoroutine(FadeOut(fadeDuration));
+    }
+
+    public bool Toggle()
+    {
+        bool sucess;
+        switch (state)
+        {
+            case CookbookState.Opening:
+                // Do nothing
+                sucess = true;
+                break;
+            case CookbookState.Open:
+                Hide();
+                sucess = false;
+                break;
+            case CookbookState.Closing:
+                // Do nothing
+                sucess = false;
+                break;
+            case CookbookState.Closed:
+                Show();
+                sucess = true;
+                break;
+            default:
+                sucess = false;
+                break;
+        }
+
+        return sucess;
     }
 
     public void StartLevel(int value)
@@ -82,6 +124,12 @@ public class CookbookMenuUI : MonoBehaviour
         canvasGroup.interactable = true;
         canvasGroup.blocksRaycasts = true;
 
+        // Focus on button
+        initalButton.Select();
+
+        // Change state
+        state = CookbookState.Open;
+
         routine = null;
     }
 
@@ -110,6 +158,9 @@ public class CookbookMenuUI : MonoBehaviour
         // Set final values
         transform.localPosition = endPos;
         canvasGroup.alpha = 0f;
+
+        // Change state
+        state = CookbookState.Closed;
 
         routine = null;
     }
