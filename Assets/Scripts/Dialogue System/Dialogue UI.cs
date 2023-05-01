@@ -290,6 +290,13 @@ public class DialogueUI : MonoBehaviour
         // Change name
         nameTextBox.text = message.name;
 
+        // Play sfx if it exists
+        if (message.sfx != "")
+        {
+            // Play
+            AudioManager.instance.PlaySound(message.sfx);
+        }
+
         // If sprite is empty, the assume dialogue is narration
         if (message.characterSprite == null)
         {
