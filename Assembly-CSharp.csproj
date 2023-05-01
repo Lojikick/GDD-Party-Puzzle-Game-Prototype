@@ -57,11 +57,11 @@
      <Compile Include="Assets\LeanTween\Examples\Scripts\PathSplineEndless.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerInteraction.cs" />
      <Compile Include="Assets\LeanTween\Examples\Scripts\Following.cs" />
-     <Compile Include="Assets\Scripts\Puzzle Objects\FinalPastryHandler.cs" />
      <Compile Include="Assets\LeanTween\Testing\TestingRotate.cs" />
      <Compile Include="Assets\Scripts\UI\InteractionUI.cs" />
      <Compile Include="Assets\LeanTween\Testing\Testing243.cs" />
      <Compile Include="Assets\LeanTween\Examples\Scripts\GeneralBasics2d.cs" />
+     <Compile Include="Assets\Scripts\Puzzle Objects\PuzzleManager.cs" />
      <Compile Include="Assets\LeanTween\Examples\Scripts\PathSplineTrack.cs" />
      <Compile Include="Assets\Scripts\Puzzle Objects\OLD\PressurePlateHandler.cs" />
      <Compile Include="Assets\LeanTween\Examples\Scripts\PathBezier.cs" />
@@ -79,6 +79,7 @@
      <Compile Include="Assets\LeanTween\Examples\Scripts\LogoCinematic.cs" />
      <Compile Include="Assets\LeanTween\Examples\Scripts\GeneralAdvancedTechniques.cs" />
      <Compile Include="Assets\Scripts\World\ScrollingBackground.cs" />
+     <Compile Include="Assets\Scripts\Ingredients\IngredientHandler.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\UI\CookbookMenuUI.cs" />
      <Compile Include="Assets\Scripts\Puzzle Objects\OLD\LockedDoorHandler.cs" />
@@ -95,12 +96,12 @@
      <Compile Include="Assets\LeanTween\Examples\Scripts\PathSpline2d.cs" />
      <Compile Include="Assets\LeanTween\Framework\LTSeq.cs" />
      <Compile Include="Assets\LeanTween\Examples\Scripts\PathBezier2d.cs" />
-     <Compile Include="Assets\Scripts\Ingredients\Ingredient.cs" />
      <Compile Include="Assets\Scripts\UI\CutoutMaskUI.cs" />
      <Compile Include="Assets\Scripts\Interactable.cs" />
      <Compile Include="Assets\LeanTween\Examples\Scripts\PathSplinePerformance.cs" />
      <Compile Include="Assets\LeanTween\Examples\Scripts\GeneralEasingTypes.cs" />
      <Compile Include="Assets\LeanTween\Framework\LeanTween.cs" />
+     <Compile Include="Assets\Scripts\UI\InventoryUI.cs" />
      <Compile Include="Assets\LeanTween\Framework\LeanTweenExt.cs" />
      <Compile Include="Assets\Scripts\Audio\AudioManager.cs" />
      <Compile Include="Assets\Scripts\World\EntranceHandler.cs" />
@@ -113,6 +114,7 @@
      <Compile Include="Assets\Scripts\NPC\NPCHandler.cs" />
      <Compile Include="Assets\LeanTween\Framework\LeanAudio.cs" />
      <Compile Include="Assets\LeanTween\Framework\LTDescrOptional.cs" />
+     <Compile Include="Assets\Scripts\Puzzle Objects\Ingredient.cs" />
      <Compile Include="Assets\LeanTween\Testing\TestingMaxTweens.cs" />
      <Compile Include="Assets\Scripts\Dialogue System\Dialogue UI.cs" />
      <Compile Include="Assets\Scripts\Puzzle Objects\OLD\BoxHandler.cs" />

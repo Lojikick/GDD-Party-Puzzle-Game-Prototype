@@ -42,18 +42,18 @@ public class TransitionManager : MonoBehaviour
     {
         if (buildIndex == 0)
         {
-            // No title theme?
-            // AudioManager.instance.PlayMusic("Day Background Music");
+            // Play title theme
+            AudioManager.instance.PlayMusic("Title Screen");
         }
         else if (buildIndex == 1)
         {
             // Play bakery theme
-            AudioManager.instance.PlayMusic("Day Background Music");
+            AudioManager.instance.PlayMusic("Overworld");
         }
         else
         {
             // Play puzzle theme
-            AudioManager.instance.PlayMusic("Night Background Music");
+            AudioManager.instance.PlayMusic("Puzzleworld");
         }
     }
 
@@ -61,18 +61,18 @@ public class TransitionManager : MonoBehaviour
     {
         if (buildIndex == 0)
         {
-            // No title theme?
-            // AudioManager.instance.StopMusic("Day Background Music");
+            // Stop title theme
+            AudioManager.instance.StopMusic("Title Screen");
         }
         else if (buildIndex == 1)
         {
             // Stop bakery theme
-            AudioManager.instance.StopMusic("Day Background Music");
+            AudioManager.instance.StopMusic("Overworld");
         }
         else
         {
             // Stop puzzle theme
-            AudioManager.instance.StopMusic("Night Background Music");
+            AudioManager.instance.StopMusic("Puzzleworld");
         }
     }
 

@@ -34,9 +34,13 @@ public class GameManager : MonoBehaviour
         numberOfPuzzlesComplete = 0;
     }
 
-    public void IncrementNumPuzzles()
+    public void CompletePuzzle()
     {
+        // Increment score
         numberOfPuzzlesComplete++;
+
+        // Change scene
+        TransitionManager.instance.LoadSelectedScene(1);
     }
 
     public int GetNumPuzzles()
