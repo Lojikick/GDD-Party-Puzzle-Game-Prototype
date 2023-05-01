@@ -31,6 +31,9 @@ public class PlayerHandler : MonoBehaviour
 
     private void Update()
     {
+        // Do nothing if paused
+        if (PauseManager.instance.IsPaused()) return;
+
         switch (playerState)
         {
             case PlayerState.Idle:

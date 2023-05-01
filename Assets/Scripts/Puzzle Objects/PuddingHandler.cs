@@ -64,7 +64,7 @@ public class PuddingHandler : MonoBehaviour
         {
             // Free player
             playerMovement.stunned = false;
-            playerMovement = null;
+            // playerMovement = null;
         }
     }
 }
