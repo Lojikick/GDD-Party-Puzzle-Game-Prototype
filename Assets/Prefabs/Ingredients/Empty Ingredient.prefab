@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 1317096447947933578}
   - component: {fileID: 1317096447947933579}
   m_Layer: 9
-  m_Name: Ingredient
+  m_Name: Empty Ingredient
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

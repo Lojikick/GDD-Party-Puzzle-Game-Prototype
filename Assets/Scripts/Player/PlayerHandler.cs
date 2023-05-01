@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerHandler : MonoBehaviour
 {
-    private enum PlayerState { Idle, Walking, Interacting, Reading }
+    private enum PlayerState { Idle, Walking, Interacting, Stunned }
 
     [Header("Components")]
     [SerializeField] private PlayerMovement movement;
@@ -68,7 +68,7 @@ public class PlayerHandler : MonoBehaviour
                 }
 
                 break;
-            case PlayerState.Reading:
+            case PlayerState.Stunned:
 
                 break;
             default:
