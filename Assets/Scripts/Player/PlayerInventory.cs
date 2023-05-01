@@ -21,6 +21,11 @@ public class PlayerInventory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Do nothing if no puzzle
+        if (PuzzleManager.instance == null) return;
+
+        ShowComboIndicator();
+
         // Check for input
         if (Input.GetKeyDown(interactKey))
         {
@@ -46,6 +51,23 @@ public class PlayerInventory : MonoBehaviour
             }
 
         }
+    }
+
+    private void ShowComboIndicator()
+    {
+        // Look for any ingredients in range
+        var hit = Physics2D.OverlapCircle(transform.position + interactionOffset, interactionRadius, interactionLayer);
+        if (hit && hit.TryGetComponent(out IngredientHandler ingredientHandler) && this.heldIngredient != null)
+        {
+            int sum = (int)ingredientHandler.ingredient.type + (int)heldIngredient.type;
+            if (sum == 1 || sum == 4) // If combo is Bread or Pudding
+            {
+                PuzzleManager.instance.SelectPosition(ingredientHandler.transform.position + (Vector3)(Vector2)movement.facingDirection);
+                return;
+            }
+        }
+
+        PuzzleManager.instance.SelectPosition(Vector3.back);
     }
 
     private IngredientHandler IsOnIngredient()

@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D rb;
     public Vector2 movement;
     public Vector2Int facingDirection;
+    public bool stunned;
 
     private void Start()
     {
@@ -74,6 +75,7 @@ public class PlayerMovement : MonoBehaviour
     //Fixed Update, will be used to handle movemement
     void FixedUpdate()
     {
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        if (!stunned)
+            rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
 }
