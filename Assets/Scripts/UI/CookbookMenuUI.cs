@@ -17,6 +17,8 @@ public class CookbookMenuUI : MonoBehaviour
 
     [Header("Debugging")]
     [SerializeField] private CookbookState state;
+    [SerializeField] private DialogueUI ui;
+    [SerializeField] private Dialogue willMonologue;
 
     private Vector3 initalPosition;
     private bool isVisible;
@@ -32,10 +34,14 @@ public class CookbookMenuUI : MonoBehaviour
             return;
         }
         instance = this;
-
+        
+        //ui = DialogueUI.instance;
         initalPosition = transform.localPosition;
         state = CookbookState.Closed;
     }
+
+    public bool IsOpen() => state == CookbookState.Open;
+    public bool IsOpening() => state == CookbookState.Opening;
 
     public void Show()
     {
@@ -43,7 +49,11 @@ public class CookbookMenuUI : MonoBehaviour
         if (routine != null) return;
 
         // Change state
+        //if(GameManager.instance.GetNumPuzzles() == 0){
+            //ui.Open(willMonologue);
+        //}
         state = CookbookState.Opening;
+        
 
         // Fade in UI
         if (routine != null) StopCoroutine(routine);

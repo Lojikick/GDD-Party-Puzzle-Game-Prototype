@@ -5,16 +5,31 @@ using UnityEngine;
 public class CutsceneManager : MonoBehaviour
 {
     [SerializeField] private Dialogue introDialogue;
-
+    [SerializeField] private Dialogue funeralDialogue;
     [SerializeField] private DialogueUI ui;
 
+    
+
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         ui = DialogueUI.instance;
 
-        // Start monologue
+       
+    }
+
+    //Cutscene manager Handles loading the dialouge for the IntroCutscene and Funeral Cutscene
+
+    public void StartCutscene()
+    {
+         // Start monologue
         ui.Open(introDialogue);
+    }
+
+    public void funeralCutscene()
+    {
+         // Start monologue
+        ui.Open(funeralDialogue);
     }
 
     private void Update()
@@ -25,11 +40,12 @@ public class CutsceneManager : MonoBehaviour
             {
                 if (ui.IsDone())
                 {
-                    // Close UI
                     ui.Close();
-
-                    // Load bakery
-                    TransitionManager.instance.LoadSelectedScene(1);
+                    //if(GameManager.instance.GetPplTalked() > 4){
+                        //TransitionManager.instance.LoadSelectedScene(4);
+                    //} else { 
+                    TransitionManager.instance.LoadSelectedScene(2);
+                    //}
                 }
                 else
                 {

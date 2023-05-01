@@ -12,28 +12,88 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dab66c5a9f99644e98aa9612c00337b, type: 3}
   m_Name: Intro Monologue
   m_EditorClassIdentifier: 
-  initalLeftCharacterSprite: {fileID: 21300000, guid: 5c05ffab5f672234b808cc0a781817db, type: 3}
-  initalRightCharacterSprite: {fileID: 0}
+  initalLeftCharacterSprite: {fileID: 21300000, guid: 0e17a769ef263404f83fe9c88a48a3fa, type: 3}
+  initalRightCharacterSprite: {fileID: 21300000, guid: 6049576c16fabc0469ed055e50c33cf4, type: 3}
   messages:
   - name: Marlon
-    characterSprite: {fileID: 21300000, guid: 5c05ffab5f672234b808cc0a781817db, type: 3}
+    characterSprite: {fileID: 21300000, guid: 0e17a769ef263404f83fe9c88a48a3fa, type: 3}
     isRightCharacter: 0
     italicized: 0
     sfx: 
     bold: 0
     text: Another day.
   - name: Marlon
-    characterSprite: {fileID: 21300000, guid: 5c05ffab5f672234b808cc0a781817db, type: 3}
+    characterSprite: {fileID: 21300000, guid: 07901c6b6a33cb642a3fcfe346b18b2f, type: 3}
     isRightCharacter: 0
     italicized: 0
-    sfx: Jumpscare SFX
+    sfx: 
     bold: 0
     text: "I\u2019ve owned Marlon\u2019s Munchies for over two decades now.\r\n"
   - name: Marlon
-    characterSprite: {fileID: 21300000, guid: 5c05ffab5f672234b808cc0a781817db, type: 3}
+    characterSprite: {fileID: 21300000, guid: aa3278ff9513b0b49a04ff4ff5047f6e, type: 3}
     isRightCharacter: 0
     italicized: 0
     sfx: 
     bold: 0
     text: "Started the first bakery in town, even though my family said it would
       never take off.\r"
+  - name: Marlon
+    characterSprite: {fileID: 21300000, guid: 1ac8ef06d27b6824b80b32f897bf8c03, type: 3}
+    isRightCharacter: 0
+    italicized: 0
+    sfx: 
+    bold: 0
+    text: "Well, fast forward to now. I have a consistent pack of loyal customers,
+      and I make enough money to support my daughter, Olive, by myself.\r"
+  - name: Marlon
+    characterSprite: {fileID: 21300000, guid: cfd668c58a0cd1c4ca13fde501c40114, type: 3}
+    isRightCharacter: 0
+    italicized: 0
+    sfx: 
+    bold: 0
+    text: "It might not be the most lavish life, but I have just enough to get by.\r"
+  - name: Marlon
+    characterSprite: {fileID: 21300000, guid: 07901c6b6a33cb642a3fcfe346b18b2f, type: 3}
+    isRightCharacter: 0
+    italicized: 0
+    sfx: 
+    bold: 0
+    text: "There\u2019s a lot to be proud of.\r"
+  - name: Marlon
+    characterSprite: {fileID: 21300000, guid: 0e17a769ef263404f83fe9c88a48a3fa, type: 3}
+    isRightCharacter: 0
+    italicized: 0
+    sfx: 
+    bold: 0
+    text: "But deep down, I feel like an embarrassment.\r"
+  - name: Marlon
+    characterSprite: {fileID: 21300000, guid: aa3278ff9513b0b49a04ff4ff5047f6e, type: 3}
+    isRightCharacter: 0
+    italicized: 0
+    sfx: 
+    bold: 0
+    text: "I always thought I'd do something more with my life. Have a bigger impact.\r"
+  - name: Marlon
+    characterSprite: {fileID: 21300000, guid: ab12ab4a2164a8e429f7c94988574604, type: 3}
+    isRightCharacter: 0
+    italicized: 0
+    sfx: 
+    bold: 0
+    text: "But now I'm 60. The years went by and I did nothing with myself. And it\u2019s
+      too late now. I have no wife, no close family, no family gatherings, no summer
+      vacations. What kind of world have I created for myself? And for my daughter?\r"
+  - name: Marlon
+    characterSprite: {fileID: 21300000, guid: 0e17a769ef263404f83fe9c88a48a3fa, type: 3}
+    isRightCharacter: 0
+    italicized: 0
+    sfx: 
+    bold: 0
+    text: "All I have are my pastries to keep things going.\r"
+  - name: Marlon
+    characterSprite: {fileID: 21300000, guid: 07901c6b6a33cb642a3fcfe346b18b2f, type: 3}
+    isRightCharacter: 0
+    italicized: 0
+    sfx: 
+    bold: 0
+    text: "And it\u2019s almost opening time, so I better get going. Time to get
+      some pies in the oven.\r"

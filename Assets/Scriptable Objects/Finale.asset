@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dab66c5a9f99644e98aa9612c00337b, type: 3}
+  m_Name: Finale
+  m_EditorClassIdentifier: 
+  initalLeftCharacterSprite: {fileID: 21300000, guid: 0e17a769ef263404f83fe9c88a48a3fa, type: 3}
+  initalRightCharacterSprite: {fileID: 0}
+  messages:
+  - name: MARLON
+    characterSprite: {fileID: 21300000, guid: 0e17a769ef263404f83fe9c88a48a3fa, type: 3}
+    isRightCharacter: 0
+    italicized: 0
+    sfx: 
+    bold: 0
+    text: peace b B)

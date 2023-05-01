@@ -12,24 +12,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dab66c5a9f99644e98aa9612c00337b, type: 3}
   m_Name: Olive Intro
   m_EditorClassIdentifier: 
-  initalLeftCharacterSprite: {fileID: 21300000, guid: 5c05ffab5f672234b808cc0a781817db, type: 3}
-  initalRightCharacterSprite: {fileID: 21300000, guid: 6049576c16fabc0469ed055e50c33cf4, type: 3}
+  initalLeftCharacterSprite: {fileID: 21300000, guid: 1ac8ef06d27b6824b80b32f897bf8c03, type: 3}
+  initalRightCharacterSprite: {fileID: 21300000, guid: 228df92906458b846b2a9f31f252bae8, type: 3}
   messages:
   - name: Marlon
-    characterSprite: {fileID: 21300000, guid: 5c05ffab5f672234b808cc0a781817db, type: 3}
+    characterSprite: {fileID: 21300000, guid: cfd668c58a0cd1c4ca13fde501c40114, type: 3}
     isRightCharacter: 0
     italicized: 0
+    sfx: 
     bold: 0
-    text: Um.. Hello?
+    text: Hello Olive! How was your day at school?
   - name: Olive
-    characterSprite: {fileID: 21300000, guid: 6049576c16fabc0469ed055e50c33cf4, type: 3}
+    characterSprite: {fileID: 21300000, guid: 5a7a54afccd27214ebfdd87f00b0162b, type: 3}
     isRightCharacter: 1
     italicized: 1
+    sfx: 
+    bold: 0
+    text: '*sniff*'
+  - name: Marlon
+    characterSprite: {fileID: 21300000, guid: 8cf49e666d359cc4fb10938734ac9bd1, type: 3}
+    isRightCharacter: 0
+    italicized: 0
+    sfx: 
+    bold: 0
+    text: . . . Olive dear? Is everything all right?
+  - name: Olive
+    characterSprite: {fileID: 21300000, guid: 2b87c46f7f6db054e8aea401b00b3527, type: 3}
+    isRightCharacter: 1
+    italicized: 1
+    sfx: 
     bold: 0
     text: '*profuse weeping*'
   - name: Marlon
-    characterSprite: {fileID: 21300000, guid: 5c05ffab5f672234b808cc0a781817db, type: 3}
+    characterSprite: {fileID: 21300000, guid: aa3278ff9513b0b49a04ff4ff5047f6e, type: 3}
     isRightCharacter: 0
     italicized: 0
+    sfx: 
     bold: 0
     text: ...

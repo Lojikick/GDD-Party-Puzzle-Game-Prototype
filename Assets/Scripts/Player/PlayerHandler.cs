@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerHandler : MonoBehaviour
 {
     private enum PlayerState { Idle, Walking, Interacting, Reading }
-
+    
     [Header("Components")]
     [SerializeField] private PlayerMovement movement;
     [SerializeField] private PlayerInteraction interaction;
@@ -50,12 +50,13 @@ public class PlayerHandler : MonoBehaviour
 
                         // Change states
                         playerState = PlayerState.Interacting;
+                        GameManager.instance.personTalked();
                     }
                 }
 
                 break;
             case PlayerState.Interacting:
-
+                
                 // Continue to check for interacting
                 if (Input.GetKeyDown(interactKey))
                 {
@@ -64,6 +65,9 @@ public class PlayerHandler : MonoBehaviour
                     {
                         // Change states
                         playerState = PlayerState.Idle;
+                        if(GameManager.instance.GetPplTalked() == 4) {
+                            GameManager.instance.personTalked();
+                        }
                     }
                 }
 

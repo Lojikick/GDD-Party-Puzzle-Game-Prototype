@@ -12,25 +12,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dab66c5a9f99644e98aa9612c00337b, type: 3}
   m_Name: Miranda Intro
   m_EditorClassIdentifier: 
-  initalLeftCharacterSprite: {fileID: 21300000, guid: 5c05ffab5f672234b808cc0a781817db, type: 3}
+  initalLeftCharacterSprite: {fileID: 21300000, guid: 07901c6b6a33cb642a3fcfe346b18b2f, type: 3}
   initalRightCharacterSprite: {fileID: 21300000, guid: 6049576c16fabc0469ed055e50c33cf4, type: 3}
   messages:
   - name: Marlon
-    characterSprite: {fileID: 21300000, guid: 5c05ffab5f672234b808cc0a781817db, type: 3}
+    characterSprite: {fileID: 21300000, guid: 1ac8ef06d27b6824b80b32f897bf8c03, type: 3}
     isRightCharacter: 0
     italicized: 0
+    sfx: 
     bold: 0
     text: Hello Miranda, what would you like today?
   - name: Miranda
     characterSprite: {fileID: 21300000, guid: 6049576c16fabc0469ed055e50c33cf4, type: 3}
     isRightCharacter: 1
     italicized: 0
+    sfx: 
     bold: 0
     text: "Hello Marlon! Mmm.. I\u2019m thinking a Cinnabon Swirl sounds nice.\r"
   - name: Marlon
-    characterSprite: {fileID: 21300000, guid: 5c05ffab5f672234b808cc0a781817db, type: 3}
+    characterSprite: {fileID: 21300000, guid: 1ac8ef06d27b6824b80b32f897bf8c03, type: 3}
     isRightCharacter: 0
     italicized: 0
+    sfx: 
     bold: 0
     text: "Good choice. I\u2019ll get one warmed up for you. Is there anything else
       I can get for you?\r\n"
@@ -38,14 +41,16 @@ MonoBehaviour:
     characterSprite: {fileID: 21300000, guid: 6049576c16fabc0469ed055e50c33cf4, type: 3}
     isRightCharacter: 1
     italicized: 0
+    sfx: 
     bold: 1
     text: 'A tissue.
 
 '
   - name: Marlon
-    characterSprite: {fileID: 21300000, guid: 5c05ffab5f672234b808cc0a781817db, type: 3}
+    characterSprite: {fileID: 21300000, guid: 07901c6b6a33cb642a3fcfe346b18b2f, type: 3}
     isRightCharacter: 0
     italicized: 0
+    sfx: 
     bold: 0
     text: 'A tissue?
 
@@ -54,13 +59,15 @@ MonoBehaviour:
     characterSprite: {fileID: 21300000, guid: 6049576c16fabc0469ed055e50c33cf4, type: 3}
     isRightCharacter: 1
     italicized: 0
+    sfx: 
     bold: 1
     text: "OH gosh I need a tissue. This is just so sad, I don\u2019t think I'll
       be able to eat all day.\r\n"
   - name: Marlon
-    characterSprite: {fileID: 21300000, guid: 5c05ffab5f672234b808cc0a781817db, type: 3}
+    characterSprite: {fileID: 21300000, guid: 8cf49e666d359cc4fb10938734ac9bd1, type: 3}
     isRightCharacter: 0
     italicized: 0
+    sfx: 
     bold: 0
     text: '..What? Are you not hungry anymore? D-did I do something?
 
@@ -69,6 +76,7 @@ MonoBehaviour:
     characterSprite: {fileID: 21300000, guid: 6049576c16fabc0469ed055e50c33cf4, type: 3}
     isRightCharacter: 1
     italicized: 0
+    sfx: 
     bold: 0
     text: '...
 

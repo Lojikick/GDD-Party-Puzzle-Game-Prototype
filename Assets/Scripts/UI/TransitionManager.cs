@@ -45,10 +45,15 @@ public class TransitionManager : MonoBehaviour
             // Play title theme
             AudioManager.instance.PlayMusic("Title Screen");
         }
-        else if (buildIndex == 1)
+        else if (buildIndex == 1 || buildIndex == 2)
         {
             // Play bakery theme
             AudioManager.instance.PlayMusic("Overworld");
+        }
+        else if (buildIndex == 3)
+        {
+            // Play bakery theme
+            AudioManager.instance.PlayMusic("Funeral Song");
         }
         else
         {
@@ -64,10 +69,15 @@ public class TransitionManager : MonoBehaviour
             // Stop title theme
             AudioManager.instance.StopMusic("Title Screen");
         }
-        else if (buildIndex == 1)
+        else if (buildIndex == 1 || buildIndex == 2)
         {
             // Stop bakery theme
             AudioManager.instance.StopMusic("Overworld");
+        }
+        else if (buildIndex == 3)
+        {
+            // Play bakery theme
+            AudioManager.instance.StopMusic("Funeral Song");
         }
         else
         {

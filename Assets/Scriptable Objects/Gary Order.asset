@@ -1,0 +1,106 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dab66c5a9f99644e98aa9612c00337b, type: 3}
+  m_Name: Gary Order
+  m_EditorClassIdentifier: 
+  initalLeftCharacterSprite: {fileID: 21300000, guid: e44495d0574679e4c8db6bef2f392e8e, type: 3}
+  initalRightCharacterSprite: {fileID: 21300000, guid: cccd3fbc165943d4e9c9733571e6ef91, type: 3}
+  messages:
+  - name: Marlon
+    characterSprite: {fileID: 21300000, guid: e44495d0574679e4c8db6bef2f392e8e, type: 3}
+    isRightCharacter: 0
+    italicized: 0
+    sfx: 
+    bold: 0
+    text: Wh.. Wha?!
+  - name: Gary
+    characterSprite: {fileID: 21300000, guid: 2d06f07032157914ebfbb42035016980, type: 3}
+    isRightCharacter: 1
+    italicized: 0
+    sfx: 
+    bold: 0
+    text: "\u201CI-I\u201D Studderning now are we? Looks like you're getting old,
+      perhaps too old to be running this place."
+  - name: Marlon
+    characterSprite: {fileID: 21300000, guid: aa3278ff9513b0b49a04ff4ff5047f6e, type: 3}
+    isRightCharacter: 0
+    italicized: 0
+    sfx: 
+    bold: 0
+    text: "What\u2026"
+  - name: Marlon
+    characterSprite: {fileID: 21300000, guid: 8cf49e666d359cc4fb10938734ac9bd1, type: 3}
+    isRightCharacter: 0
+    italicized: 0
+    sfx: 
+    bold: 0
+    text: I thought..
+  - name: Gary
+    characterSprite: {fileID: 21300000, guid: cccd3fbc165943d4e9c9733571e6ef91, type: 3}
+    isRightCharacter: 1
+    italicized: 0
+    sfx: 
+    bold: 0
+    text: "No offense old man, but I got my own Bakery to run. I don\u2019t particularly
+      care for whatever you have going on."
+  - name: Gary
+    characterSprite: {fileID: 21300000, guid: a8d9749b99124364c986887425341602, type: 3}
+    isRightCharacter: 1
+    italicized: 0
+    sfx: 
+    bold: 0
+    text: I just need to place an order. Although my bakery is most definitely better
+      than yours in every way, my mom unfortunately still prefers your muffins.
+  - name: Gary
+    characterSprite: {fileID: 21300000, guid: 2d06f07032157914ebfbb42035016980, type: 3}
+    isRightCharacter: 1
+    italicized: 0
+    sfx: 
+    bold: 0
+    text: "That being said, i\u2019ll take one *****"
+  - name: Marlon
+    characterSprite: {fileID: 21300000, guid: aa3278ff9513b0b49a04ff4ff5047f6e, type: 3}
+    isRightCharacter: 0
+    italicized: 0
+    sfx: 
+    bold: 0
+    text: Huh? One what?
+  - name: Gary
+    characterSprite: {fileID: 21300000, guid: 4031b76c3aa74844bacd947f76aefb95, type: 3}
+    isRightCharacter: 1
+    italicized: 0
+    sfx: 
+    bold: 0
+    text: Are you that hard of hearing? I said one *****
+  - name: Marlon
+    characterSprite: {fileID: 21300000, guid: ab12ab4a2164a8e429f7c94988574604, type: 3}
+    isRightCharacter: 0
+    italicized: 1
+    sfx: 
+    bold: 0
+    text: "What is he saying? With how rude he always is, it\u2019s not worth it
+      to ask again. I\u2019ll check my cookbook in the backroom, that\u2019s where
+      I keep all the usual orders of the customers. "
+  - name: Marlon
+    characterSprite: {fileID: 21300000, guid: 8cf49e666d359cc4fb10938734ac9bd1, type: 3}
+    isRightCharacter: 0
+    italicized: 1
+    sfx: 
+    bold: 0
+    text: "He\u2019s getting something for his mom, so it\u2019ll definitely be there."
+  - name: Marlon
+    characterSprite: {fileID: 21300000, guid: 07901c6b6a33cb642a3fcfe346b18b2f, type: 3}
+    isRightCharacter: 0
+    italicized: 1
+    sfx: 
+    bold: 0
+    text: "Um, Okay, I\u2019ll be right back"

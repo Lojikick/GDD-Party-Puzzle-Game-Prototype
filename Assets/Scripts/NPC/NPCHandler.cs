@@ -96,14 +96,17 @@ public class NPCHandler : Interactable
     public override bool Interact()
     {
         bool sucess;
-
+        //GameManager.instance.personTalked();
+        
         if (ui.IsOpen())
         {
             if (ui.IsDone())
             {
                 // Close UI
+                
                 ui.Close();
                 sucess = false;
+                
             }
             else
             {
@@ -132,6 +135,7 @@ public class NPCHandler : Interactable
             }
         }
 
+        
         return sucess;
     }
 

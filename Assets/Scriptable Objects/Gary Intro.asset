@@ -12,39 +12,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dab66c5a9f99644e98aa9612c00337b, type: 3}
   m_Name: Gary Intro
   m_EditorClassIdentifier: 
-  initalLeftCharacterSprite: {fileID: 21300000, guid: 5c05ffab5f672234b808cc0a781817db, type: 3}
-  initalRightCharacterSprite: {fileID: 21300000, guid: 6049576c16fabc0469ed055e50c33cf4, type: 3}
+  initalLeftCharacterSprite: {fileID: 21300000, guid: 07901c6b6a33cb642a3fcfe346b18b2f, type: 3}
+  initalRightCharacterSprite: {fileID: 21300000, guid: cccd3fbc165943d4e9c9733571e6ef91, type: 3}
   messages:
   - name: Marlon
-    characterSprite: {fileID: 21300000, guid: 5c05ffab5f672234b808cc0a781817db, type: 3}
+    characterSprite: {fileID: 21300000, guid: 8cf49e666d359cc4fb10938734ac9bd1, type: 3}
     isRightCharacter: 0
     italicized: 1
+    sfx: 
     bold: 0
     text: "Gary? What is he doing here? Gary\u2019s Goodies is open today, why isn\u2019t
       he there."
   - name: Marlon
-    characterSprite: {fileID: 21300000, guid: 5c05ffab5f672234b808cc0a781817db, type: 3}
+    characterSprite: {fileID: 21300000, guid: aa3278ff9513b0b49a04ff4ff5047f6e, type: 3}
     isRightCharacter: 0
     italicized: 0
+    sfx: 
     bold: 0
     text: Gary!
   - name: Gary
-    characterSprite: {fileID: 21300000, guid: 6049576c16fabc0469ed055e50c33cf4, type: 3}
+    characterSprite: {fileID: 21300000, guid: 4031b76c3aa74844bacd947f76aefb95, type: 3}
     isRightCharacter: 1
     italicized: 0
+    sfx: 
     bold: 0
     text: "Yeah, he\u2019ll be missed. He was a great baker; of course not as good
       as me, but as good as Bakers come."
   - name: Marlon
-    characterSprite: {fileID: 21300000, guid: 5c05ffab5f672234b808cc0a781817db, type: 3}
+    characterSprite: {fileID: 21300000, guid: 8cf49e666d359cc4fb10938734ac9bd1, type: 3}
     isRightCharacter: 0
     italicized: 0
+    sfx: 
     bold: 0
     text: Gary?
   - name: Gary
-    characterSprite: {fileID: 21300000, guid: 6049576c16fabc0469ed055e50c33cf4, type: 3}
+    characterSprite: {fileID: 21300000, guid: a8d9749b99124364c986887425341602, type: 3}
     isRightCharacter: 1
     italicized: 0
+    sfx: 
     bold: 1
     text: "I\u2019d say this all came as a surprise, but come on, the man practically
       looked ready to hit the ground."

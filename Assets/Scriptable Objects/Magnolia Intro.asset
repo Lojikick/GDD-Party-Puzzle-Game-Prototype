@@ -12,80 +12,92 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dab66c5a9f99644e98aa9612c00337b, type: 3}
   m_Name: Magnolia Intro
   m_EditorClassIdentifier: 
-  initalLeftCharacterSprite: {fileID: 21300000, guid: 5c05ffab5f672234b808cc0a781817db, type: 3}
-  initalRightCharacterSprite: {fileID: 21300000, guid: 6049576c16fabc0469ed055e50c33cf4, type: 3}
+  initalLeftCharacterSprite: {fileID: 21300000, guid: 07901c6b6a33cb642a3fcfe346b18b2f, type: 3}
+  initalRightCharacterSprite: {fileID: 21300000, guid: fcbd3cb661672944a8d86b61631d40e8, type: 3}
   messages:
   - name: Marlon
-    characterSprite: {fileID: 21300000, guid: 5c05ffab5f672234b808cc0a781817db, type: 3}
+    characterSprite: {fileID: 21300000, guid: 1ac8ef06d27b6824b80b32f897bf8c03, type: 3}
     isRightCharacter: 0
     italicized: 0
+    sfx: 
     bold: 0
     text: "Magnolia, can I get you something?\r"
   - name: Magnolia
-    characterSprite: {fileID: 21300000, guid: 6049576c16fabc0469ed055e50c33cf4, type: 3}
+    characterSprite: {fileID: 21300000, guid: bf1f719ef20ffbe41af163ba4f034d3f, type: 3}
     isRightCharacter: 1
     italicized: 0
+    sfx: 
     bold: 0
     text: Hello Marlon.
   - name: Marlon
-    characterSprite: {fileID: 21300000, guid: 5c05ffab5f672234b808cc0a781817db, type: 3}
+    characterSprite: {fileID: 21300000, guid: cfd668c58a0cd1c4ca13fde501c40114, type: 3}
     isRightCharacter: 0
     italicized: 0
+    sfx: 
     bold: 0
     text: "Hello Magnolia.\r"
   - name: Magnolia
-    characterSprite: {fileID: 21300000, guid: 6049576c16fabc0469ed055e50c33cf4, type: 3}
+    characterSprite: {fileID: 21300000, guid: 5ee7fc1f13515a149ab611ec7b94c7ba, type: 3}
     isRightCharacter: 1
     italicized: 0
+    sfx: 
     bold: 0
     text: "You look nice today.\r"
   - name: Marlon
-    characterSprite: {fileID: 21300000, guid: 5c05ffab5f672234b808cc0a781817db, type: 3}
+    characterSprite: {fileID: 21300000, guid: 1ac8ef06d27b6824b80b32f897bf8c03, type: 3}
     isRightCharacter: 0
     italicized: 0
+    sfx: 
     bold: 0
     text: "Oh, thank you. Can I get you something?\r"
   - name: Magnolia
-    characterSprite: {fileID: 21300000, guid: 6049576c16fabc0469ed055e50c33cf4, type: 3}
+    characterSprite: {fileID: 21300000, guid: bf1f719ef20ffbe41af163ba4f034d3f, type: 3}
     isRightCharacter: 1
     italicized: 0
+    sfx: 
     bold: 0
     text: "You know me. Something tangy. Sweet with a bit of edge, like me I suppose.\r"
   - name: Marlon
-    characterSprite: {fileID: 21300000, guid: 5c05ffab5f672234b808cc0a781817db, type: 3}
+    characterSprite: {fileID: 21300000, guid: 1ac8ef06d27b6824b80b32f897bf8c03, type: 3}
     isRightCharacter: 0
     italicized: 0
+    sfx: 
     bold: 0
     text: "Ah, so the usual for today. I\u2019ll get your order out soon.\r"
   - name: Magnolia
-    characterSprite: {fileID: 21300000, guid: 6049576c16fabc0469ed055e50c33cf4, type: 3}
+    characterSprite: {fileID: 21300000, guid: 9b08907e634d52f4aab61ca1e8e6bdff, type: 3}
     isRightCharacter: 1
     italicized: 0
+    sfx: 
     bold: 1
     text: "Why did they do his hair like that? They did it all wrong, it doesn\u2019t
       capture his soft complexion.\r"
   - name: Marlon
-    characterSprite: {fileID: 21300000, guid: 5c05ffab5f672234b808cc0a781817db, type: 3}
+    characterSprite: {fileID: 21300000, guid: aa3278ff9513b0b49a04ff4ff5047f6e, type: 3}
     isRightCharacter: 0
     italicized: 0
+    sfx: 
     bold: 0
     text: Who are you talking about...?
   - name: Magnolia
-    characterSprite: {fileID: 21300000, guid: 6049576c16fabc0469ed055e50c33cf4, type: 3}
+    characterSprite: {fileID: 21300000, guid: ead704a5258e6bc44a1d8169c2eab547, type: 3}
     isRightCharacter: 1
     italicized: 0
+    sfx: 
     bold: 1
     text: "And his shirt. It\u2019s not his baking shirt. They dressed him up in
       some fancy suit.. He doesn\u2019t look like himself at all.\r"
   - name: Marlon
-    characterSprite: {fileID: 21300000, guid: 5c05ffab5f672234b808cc0a781817db, type: 3}
+    characterSprite: {fileID: 21300000, guid: 8cf49e666d359cc4fb10938734ac9bd1, type: 3}
     isRightCharacter: 0
     italicized: 0
+    sfx: 
     bold: 0
     text: "Magnolia?\r"
   - name: Magnolia
-    characterSprite: {fileID: 21300000, guid: 6049576c16fabc0469ed055e50c33cf4, type: 3}
+    characterSprite: {fileID: 21300000, guid: 9b08907e634d52f4aab61ca1e8e6bdff, type: 3}
     isRightCharacter: 1
     italicized: 0
+    sfx: 
     bold: 0
     text: ...

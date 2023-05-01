@@ -1,0 +1,114 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dab66c5a9f99644e98aa9612c00337b, type: 3}
+  m_Name: WillMonolouge
+  m_EditorClassIdentifier: 
+  initalLeftCharacterSprite: {fileID: 21300000, guid: 07901c6b6a33cb642a3fcfe346b18b2f, type: 3}
+  initalRightCharacterSprite: {fileID: 0}
+  messages:
+  - name: Marlon
+    characterSprite: {fileID: 21300000, guid: e44495d0574679e4c8db6bef2f392e8e, type: 3}
+    isRightCharacter: 0
+    italicized: 0
+    sfx: 
+    bold: 0
+    text: Wha!?... What is this place?
+  - name: Marlon
+    characterSprite: {fileID: 21300000, guid: e44495d0574679e4c8db6bef2f392e8e, type: 3}
+    isRightCharacter: 0
+    italicized: 0
+    sfx: 
+    bold: 0
+    text: How did I end up here? All I remember was flipping through my cookbook
+      where I kept...
+  - name: Marlon
+    characterSprite: {fileID: 21300000, guid: aa3278ff9513b0b49a04ff4ff5047f6e, type: 3}
+    isRightCharacter: 0
+    italicized: 0
+    sfx: 
+    bold: 0
+    text: ...my Will.
+  - name: Marlon
+    characterSprite: {fileID: 21300000, guid: aa3278ff9513b0b49a04ff4ff5047f6e, type: 3}
+    isRightCharacter: 0
+    italicized: 0
+    sfx: 
+    bold: 0
+    text: "\u2026"
+  - name: Marlon
+    characterSprite: {fileID: 21300000, guid: 8cf49e666d359cc4fb10938734ac9bd1, type: 3}
+    isRightCharacter: 0
+    italicized: 0
+    sfx: 
+    bold: 0
+    text: "So the funeral was real then? I\u2019m dead? ... Is that why everything
+      is so weird?"
+  - name: Marlon
+    characterSprite: {fileID: 21300000, guid: ab12ab4a2164a8e429f7c94988574604, type: 3}
+    isRightCharacter: 0
+    italicized: 0
+    sfx: 
+    bold: 0
+    text: What kind of life did I live? I always thought I'd have more time. I didn't
+      even have it in me to write a will.
+  - name: Marlon
+    characterSprite: {fileID: 21300000, guid: 0e17a769ef263404f83fe9c88a48a3fa, type: 3}
+    isRightCharacter: 0
+    italicized: 0
+    sfx: 
+    bold: 0
+    text: "\u2026"
+  - name: Marlon
+    characterSprite: {fileID: 21300000, guid: aa3278ff9513b0b49a04ff4ff5047f6e, type: 3}
+    isRightCharacter: 0
+    italicized: 0
+    sfx: 
+    bold: 0
+    text: "But why am I still here? This doesn\u2019t seem like heaven."
+  - name: Marlon
+    characterSprite: {fileID: 21300000, guid: 8cf49e666d359cc4fb10938734ac9bd1, type: 3}
+    isRightCharacter: 0
+    italicized: 0
+    sfx: 
+    bold: 0
+    text: 'Hell? '
+  - name: Marlon
+    characterSprite: {fileID: 21300000, guid: 07901c6b6a33cb642a3fcfe346b18b2f, type: 3}
+    isRightCharacter: 0
+    italicized: 0
+    sfx: 
+    bold: 0
+    text: I expected hell to be a lot worse.
+  - name: Marlon
+    characterSprite: {fileID: 21300000, guid: 8cf49e666d359cc4fb10938734ac9bd1, type: 3}
+    isRightCharacter: 0
+    italicized: 0
+    sfx: 
+    bold: 0
+    text: .. And what was with all of my orders being blurred out? It wasn't my complete
+      cookbook, there were only three people in it.
+  - name: Marlon
+    characterSprite: {fileID: 21300000, guid: 07901c6b6a33cb642a3fcfe346b18b2f, type: 3}
+    isRightCharacter: 0
+    italicized: 0
+    sfx: 
+    bold: 0
+    text: ..Maybe my purpose has something to do with their orders.
+  - name: Marlon
+    characterSprite: {fileID: 21300000, guid: 0e17a769ef263404f83fe9c88a48a3fa, type: 3}
+    isRightCharacter: 0
+    italicized: 0
+    sfx: 
+    bold: 0
+    text: '*sigh* Even in death, I''m still just a baker. But maybe I can figure
+      out what the orders were in this strange place. I have all my recipies in my
+      cookbook after all..'
