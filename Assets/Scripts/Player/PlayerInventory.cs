@@ -1,39 +1,45 @@
 using UnityEngine;
 
-public enum IngredientType { Empty, Flour, Milk, Eggs, Sugar };
-
 public class PlayerInventory : MonoBehaviour
 {
-    // private string storedItem;
-    private IngredientType heldIngredient;
+    [SerializeField] private PlayerMovement movement;
 
-    // Start is called before the first frame update
-    void Start()
+    [Header("Settings")]
+    [SerializeField] private KeyCode interactKey = KeyCode.E;
+    [SerializeField] private float interactionRadius;
+    [SerializeField] private LayerMask interactionLayer;
+    [SerializeField] private Vector3 interactionOffset;
+
+    [Header("Debugging")]
+    [SerializeField] private Ingredient heldIngredient;
+
+    private void Awake()
     {
-        heldIngredient = IngredientType.Empty;
+        movement = GetComponent<PlayerMovement>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Check input
-        if (Input.GetKeyDown(KeyCode.F))
+        // Check for input
+        if (Input.GetKeyDown(interactKey))
         {
-            // Check if you are on an item
-            if (IsOnItem())
+            // Check if you are standing on top of an ingredient
+            var groundIngredientHandler = IsOnIngredient();
+            if (groundIngredientHandler != null)
             {
-                if (heldIngredient == IngredientType.Empty)
+                if (heldIngredient == null)
                 {
-                    PickUp(IngredientType.Empty); // FIXME
+                    PickUp(groundIngredientHandler);
                 }
-                else if (heldIngredient != IngredientType.Empty)
+                else // If already holding something
                 {
-                    Combine(heldIngredient, IngredientType.Empty); // FIXME
+                    Combine(heldIngredient, groundIngredientHandler);
                 }
             }
             else
             {
-                if (heldIngredient != IngredientType.Empty)
+                if (heldIngredient != null)
                 {
                     Drop();
                 }
@@ -42,27 +48,84 @@ public class PlayerInventory : MonoBehaviour
         }
     }
 
-    private bool IsOnItem()
+    private IngredientHandler IsOnIngredient()
     {
-        // TODO
-        return true;
+        // Look for any ingredients in range
+        var hit = Physics2D.OverlapCircle(transform.position + interactionOffset, interactionRadius, interactionLayer);
+        if (hit && hit.TryGetComponent(out IngredientHandler ingredientHandler))
+        {
+            return ingredientHandler;
+        }
+
+        return null;
     }
 
-    private void PickUp(IngredientType ingredient)
+    private void PickUp(IngredientHandler ingredientHandler)
     {
-        // TODO
+        this.heldIngredient = ingredientHandler.ingredient;
+
+        // Update UI
+        InventoryUI.instance.SetSprite(this.heldIngredient.sprite);
+
+        // Destroy ingredient
+        Destroy(ingredientHandler.gameObject);
+
+        // Play sound
+        AudioManager.instance.PlaySound("Pickup SFX");
+
+        // Check if ingredient is final pastry
+        if (heldIngredient.type == IngredientType.Pastry)
+        {
+            // Complete level
+            GameManager.instance.CompletePuzzle();
+        }
+
+        // Debugging
+        print("Picking up " + heldIngredient.name);
     }
 
     private void Drop()
     {
-        // TODO
+        // Debugging
+        print("Dropping " + heldIngredient.name);
+
+        // Spawn ingredient ontop of the tile you are standing on
+        PuzzleManager.instance.SpawnIngredient(this.heldIngredient, transform.position);
+
+        // Play sound
+        AudioManager.instance.PlaySound("Drop SFX");
+
+        // Update UI
+        InventoryUI.instance.SetSprite(null);
+
+        this.heldIngredient = null;
     }
 
-    private void Combine(IngredientType ingredient1, IngredientType ingredient2)
+    private void Combine(Ingredient heldIngredient, IngredientHandler groundIngredient)
     {
-        // TODO
+        // Debugging
+        print("Combing " + heldIngredient.name + " and " + groundIngredient.ingredient.name);
+
+        // Mix
+        bool sucess = PuzzleManager.instance.MixIngredients(heldIngredient, groundIngredient.ingredient, groundIngredient.transform.position, movement.facingDirection);
+        if (sucess)
+        {
+            // Play sound
+            AudioManager.instance.PlaySound("Combine SFX");
+
+            // Update UI
+            InventoryUI.instance.SetSprite(null);
+
+            // Get rid of both ingredients
+            Destroy(groundIngredient.gameObject);
+            this.heldIngredient = null;
+        }
+
     }
 
-
-
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position + interactionOffset, interactionRadius);
+    }
 }
