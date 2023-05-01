@@ -60,14 +60,19 @@ public class PlayerInventory : MonoBehaviour
         if (hit && hit.TryGetComponent(out IngredientHandler ingredientHandler) && this.heldIngredient != null)
         {
             int sum = (int)ingredientHandler.ingredient.type + (int)heldIngredient.type;
-            if (sum == 1 || sum == 4) // If combo is Bread or Pudding
+            if (sum == 1) // If combo is Bread 
             {
-                PuzzleManager.instance.SelectPosition(ingredientHandler.transform.position + (Vector3)(Vector2)movement.facingDirection);
+                PuzzleManager.instance.SelectBreadPosition(ingredientHandler.transform.position + (Vector3)(Vector2)movement.facingDirection);
+                return;
+            }
+            else if (sum == 4) // Pudding
+            {
+                PuzzleManager.instance.SelectPuddingPosition(ingredientHandler.transform.position + (Vector3)(Vector2)movement.facingDirection);
                 return;
             }
         }
 
-        PuzzleManager.instance.SelectPosition(Vector3.back);
+        PuzzleManager.instance.SelectPuddingPosition(Vector3.back);
     }
 
     private IngredientHandler IsOnIngredient()

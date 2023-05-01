@@ -34,7 +34,7 @@ Transform:
   - {fileID: 7835551270433531292}
   - {fileID: 7835551270696715160}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &7835551270407516826
 BoxCollider2D:
@@ -79,7 +79,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.5}
+  m_Size: {x: 0.7, y: 0.7}
   m_EdgeRadius: 0
 --- !u!50 &7835551270407516828
 Rigidbody2D:
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: {x: 0, y: 0, z: 0}
-  distance: 5
+  distance: 4
   height: 1.5
   duration: 0.5
   playerMovement: {fileID: 0}
@@ -199,7 +199,7 @@ SpriteRenderer:
   m_SortingLayerID: -1422420999
   m_SortingLayer: 4
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: a280bc79934865644be15ae27a13bbc5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d0dd0b2049f33184aa00d1dc7ea0d393, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

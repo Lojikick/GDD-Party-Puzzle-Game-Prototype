@@ -9,6 +9,7 @@ public class PlayerHandler : MonoBehaviour
     [Header("Components")]
     [SerializeField] private PlayerMovement movement;
     [SerializeField] private PlayerInteraction interaction;
+    [SerializeField] private Animator animator;
 
     [Header("Settings")]
     [SerializeField] private KeyCode interactKey = KeyCode.E;
@@ -20,6 +21,7 @@ public class PlayerHandler : MonoBehaviour
     {
         movement = GetComponent<PlayerMovement>();
         interaction = GetComponent<PlayerInteraction>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     private void Start()
@@ -38,6 +40,9 @@ public class PlayerHandler : MonoBehaviour
 
                 // Check for interactables
                 interaction.SearchForInteractables();
+
+                // Play animation
+                AnimateMovement();
 
                 // Attempt to interact
                 if (Input.GetKeyDown(interactKey))
@@ -75,6 +80,49 @@ public class PlayerHandler : MonoBehaviour
                 // Debug
                 print("Unimplemented state: " + playerState.ToString());
                 break;
+        }
+    }
+
+    private void AnimateMovement()
+    {
+        // Player is not moving
+        if (movement.movement == Vector2.zero)
+        {
+            if (movement.facingDirection.x == 1)
+            {
+                animator.Play("Idle Right");
+            }
+            else if (movement.facingDirection.x == -1)
+            {
+                animator.Play("Idle Left");
+            }
+            else if (movement.facingDirection.y == 1)
+            {
+                animator.Play("Idle Up");
+            }
+            else if (movement.facingDirection.y == -1)
+            {
+                animator.Play("Idle Down");
+            }
+        }
+        else
+        {
+            if (movement.facingDirection.x == 1)
+            {
+                animator.Play("Walk Right");
+            }
+            else if (movement.facingDirection.x == -1)
+            {
+                animator.Play("Walk Left");
+            }
+            else if (movement.facingDirection.y == 1)
+            {
+                animator.Play("Walk Up");
+            }
+            else if (movement.facingDirection.y == -1)
+            {
+                animator.Play("Walk Down");
+            }
         }
     }
 }
