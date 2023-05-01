@@ -7,7 +7,6 @@ public class PuzzleManager : MonoBehaviour
 {
     [Header("Components")]
     [SerializeField] private Tilemap groundTilemap;
-    [SerializeField] private Tilemap wallTilemap;
     [SerializeField] private Tilemap indicatorTilemap;
     [SerializeField] private GameObject ingredientPrefab;
     [SerializeField] private GameObject puddingPrefab;

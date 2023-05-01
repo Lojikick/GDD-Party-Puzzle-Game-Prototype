@@ -105,4 +105,6 @@ public class PauseManager : MonoBehaviour
         // Quit game
         Application.Quit();
     }
+
+    public bool IsPaused() => isPaused;
 }

@@ -47,26 +47,26 @@ MonoBehaviour:
   sounds:
   - name: Overworld
     audioClip: {fileID: 8300000, guid: 45afd6148be08fc41947edc7e800611a, type: 3}
-    volume: 0.15
+    volume: 0.03
     pitch: 1
     loop: 1
-    ignorePause: 0
+    ignorePause: 1
     audioSource: {fileID: 0}
     audioMixerGroup: {fileID: 0}
   - name: Puzzleworld
     audioClip: {fileID: 8300000, guid: 9471d86bb744605488a1c4d8f96c72c9, type: 3}
-    volume: 0.15
+    volume: 0.05
     pitch: 1
     loop: 1
-    ignorePause: 0
+    ignorePause: 1
     audioSource: {fileID: 0}
     audioMixerGroup: {fileID: 0}
   - name: Title Screen
     audioClip: {fileID: 8300000, guid: e8dc9b3980e6f4f47bb2f39f56ed95ba, type: 3}
-    volume: 0.15
+    volume: 0.05
     pitch: 1
     loop: 1
-    ignorePause: 0
+    ignorePause: 1
     audioSource: {fileID: 0}
     audioMixerGroup: {fileID: 0}
   - name: Drop SFX
