@@ -82,6 +82,7 @@
     <Compile Include="Assets/LeanTween/Examples/Scripts/PathSplineTrack.cs" />
     <Compile Include="Assets/Scripts/Puzzle Objects/OLD/PressurePlateHandler.cs" />
     <Compile Include="Assets/LeanTween/Examples/Scripts/PathBezier.cs" />
+    <Compile Include="Assets/Scripts/World/ProperLayerSort.cs" />
     <Compile Include="Assets/LeanTween/Examples/Scripts/PathSpline.cs" />
     <Compile Include="Assets/LeanTween/Testing/Testing240.cs" />
     <Compile Include="Assets/Scripts/UI/MainMenuManager.cs" />
@@ -94,9 +95,11 @@
     <Compile Include="Assets/Scripts/UI/TransitionManager.cs" />
     <Compile Include="Assets/LeanTween/Examples/Scripts/LogoCinematic.cs" />
     <Compile Include="Assets/LeanTween/Examples/Scripts/GeneralAdvancedTechniques.cs" />
+    <Compile Include="Assets/Scripts/World/ScrollingBackground.cs" />
     <Compile Include="Assets/Scripts/GameManager.cs" />
     <Compile Include="Assets/Scripts/UI/CookbookMenuUI.cs" />
     <Compile Include="Assets/Scripts/Puzzle Objects/OLD/LockedDoorHandler.cs" />
+    <Compile Include="Assets/Scripts/World/DoorHandler.cs" />
     <Compile Include="Assets/Scripts/Puzzle Objects/OLD/SpikesHandler.cs" />
     <Compile Include="Assets/LeanTween/Testing/TestingSceneSwitching.cs" />
     <Compile Include="Assets/LeanTween/Testing/Testing246.cs" />
@@ -109,6 +112,7 @@
     <Compile Include="Assets/LeanTween/Examples/Scripts/PathSpline2d.cs" />
     <Compile Include="Assets/LeanTween/Framework/LTSeq.cs" />
     <Compile Include="Assets/LeanTween/Examples/Scripts/PathBezier2d.cs" />
+    <Compile Include="Assets/Scripts/Ingredients/Ingredient.cs" />
     <Compile Include="Assets/Scripts/UI/CutoutMaskUI.cs" />
     <Compile Include="Assets/LeanTween/Examples/Scripts/PathSplinePerformance.cs" />
     <Compile Include="Assets/LeanTween/Examples/Scripts/GeneralEasingTypes.cs" />
@@ -116,9 +120,11 @@
     <Compile Include="Assets/LeanTween/Framework/LeanTweenExt.cs" />
     <Compile Include="Assets/Scripts/Audio/AudioManager.cs" />
     <Compile Include="Assets/Scripts/World/EntranceHandler.cs" />
+    <Compile Include="Assets/Scripts/Player/PlayerInventory.cs" />
     <Compile Include="Assets/LeanTween/Framework/LeanSmooth.cs" />
     <Compile Include="Assets/Scripts/UI/LogoUI.cs" />
     <Compile Include="Assets/Scripts/Player/PlayerMovement.cs" />
+    <Compile Include="Assets/Scripts/World/CameraRepositionTrigger.cs" />
     <Compile Include="Assets/Scripts/NPC/NPCHandler.cs" />
     <Compile Include="Assets/LeanTween/Framework/LeanAudio.cs" />
     <Compile Include="Assets/LeanTween/Framework/LTDescrOptional.cs" />

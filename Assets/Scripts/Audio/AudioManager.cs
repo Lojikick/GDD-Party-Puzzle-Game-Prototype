@@ -38,14 +38,6 @@ public class AudioManager : MonoBehaviour
         DontDestroyOnLoad(this);
     }
 
-    private void Start()
-    {
-        // TODO Move this to a different location?
-        
-        // Play background music based on which scene you are in
-        PlayMusic("Day Background Music");
-    }
-
     private IEnumerator FadeInAudio(Sound sound)
     {
         var startVolume = 0;
