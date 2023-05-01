@@ -61,7 +61,7 @@ public class PuzzleManager : MonoBehaviour
 
     public bool MixIngredients(Ingredient ingredient1, Ingredient ingredient2, Vector3 startingPosition, Vector2 facingDirection)
     {
-        // Dough (Flour + Milk) = 0 + 1 = 1
+        // Bread (Flour + Milk) = 0 + 1 = 1
         // Pudding (Sugar + Milk) = 3 + 1 = 4
         // Noodle  (Flour + Egg) = 0 + 2 = 2
         // Baking Soda + Vinegar (Flour + Sugar) = 0 + 3 = 3
@@ -132,7 +132,7 @@ public class PuzzleManager : MonoBehaviour
         return !groundTilemap.HasTile(cellPosition);
     }
 
-    public void SelectPosition(Vector3 position)
+    public void SelectPuddingPosition(Vector3 position)
     {
         // Deselect
         if (this.selectedCell != Vector3Int.back)
@@ -156,6 +156,36 @@ public class PuzzleManager : MonoBehaviour
         else
         {
             indicatorTilemap.SetTile(cellPosition, invalidSelectTile);
+        }
+
+        // Save
+        this.selectedCell = cellPosition;
+    }
+
+    public void SelectBreadPosition(Vector3 position)
+    {
+        // Deselect
+        if (this.selectedCell != Vector3Int.back)
+        {
+            indicatorTilemap.SetTile(this.selectedCell, null);
+        }
+
+        if (position == Vector3.back)
+        {
+            // Dip
+            return;
+        }
+
+        var cellPosition = groundTilemap.WorldToCell(position);
+
+        // If on ground
+        if (groundTilemap.HasTile(cellPosition))
+        {
+            indicatorTilemap.SetTile(cellPosition, invalidSelectTile);
+        }
+        else
+        {
+            indicatorTilemap.SetTile(cellPosition, validSelectTile);
         }
 
         // Save
