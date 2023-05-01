@@ -31,6 +31,7 @@ public class DialogueMessage
     public Sprite characterSprite;
     public bool isRightCharacter;
     public bool italicized;
+    public string sfx;
     public bool bold;
     [TextArea(4, 10)]
     public string text;

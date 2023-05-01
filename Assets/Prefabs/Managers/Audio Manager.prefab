@@ -101,4 +101,12 @@ MonoBehaviour:
     ignorePause: 0
     audioSource: {fileID: 0}
     audioMixerGroup: {fileID: 0}
+  - name: Jumpscare SFX
+    audioClip: {fileID: 8300000, guid: 0e46a2ac894072346906d8d64131f04c, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    ignorePause: 0
+    audioSource: {fileID: 0}
+    audioMixerGroup: {fileID: 0}
   fadeTime: 1

@@ -45,6 +45,7 @@
      <Compile Include="Assets\LeanTween\Examples\Scripts\GeneralCameraShake.cs" />
      <Compile Include="Assets\LeanTween\Examples\Scripts\TestingUnitTests.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerHandler.cs" />
+     <Compile Include="Assets\Scripts\CutsceneManager.cs" />
      <Compile Include="Assets\LeanTween\Framework\LTDescr.cs" />
      <Compile Include="Assets\Scripts\UI\ButtonAudio.cs" />
      <Compile Include="Assets\LeanTween\Framework\LeanTest.cs" />
