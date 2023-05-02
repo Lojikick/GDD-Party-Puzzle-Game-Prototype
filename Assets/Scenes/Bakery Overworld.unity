@@ -18611,8 +18611,10 @@ MonoBehaviour:
   initalButton2: {fileID: 877387471}
   fadeOffset: 75
   fadeDuration: 0.5
-  maxLevels: 3
+  maxLevels: 5
   state: 0
+  ui: {fileID: 0}
+  willMonologue: {fileID: 0}
 --- !u!225 &2143168139
 CanvasGroup:
   m_ObjectHideFlags: 0

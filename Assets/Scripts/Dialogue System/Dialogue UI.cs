@@ -53,7 +53,7 @@ public class DialogueUI : MonoBehaviour
     public void Open(Dialogue dialogue)
     {
         // Error checking
-        
+
         if (dialogue == null) throw new System.Exception("CANNOT OPEN NULL DIALOGUE!");
         if (this.currentDialogue == dialogue) return;
 
@@ -113,6 +113,9 @@ public class DialogueUI : MonoBehaviour
         }
         else
         {
+            // Fix
+            if (state != DialogueState.Open) return;
+
             // Hide arrow
             HideArrow();
 
