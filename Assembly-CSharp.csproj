@@ -78,6 +78,7 @@
      <Compile Include="Assets\LeanTween\Testing\PerformanceTests.cs" />
      <Compile Include="Assets\Scripts\UI\TransitionManager.cs" />
      <Compile Include="Assets\LeanTween\Examples\Scripts\LogoCinematic.cs" />
+     <Compile Include="Assets\Scripts\GamplaySceneManager.cs" />
      <Compile Include="Assets\LeanTween\Examples\Scripts\GeneralAdvancedTechniques.cs" />
      <Compile Include="Assets\Scripts\World\ScrollingBackground.cs" />
      <Compile Include="Assets\Scripts\Ingredients\IngredientHandler.cs" />
@@ -110,6 +111,7 @@
      <Compile Include="Assets\LeanTween\Framework\LeanSmooth.cs" />
      <Compile Include="Assets\Scripts\UI\LogoUI.cs" />
      <Compile Include="Assets\Scripts\UI\PauseManager.cs" />
+     <Compile Include="Assets\Scripts\MemoryManager.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\World\CameraRepositionTrigger.cs" />
      <Compile Include="Assets\Scripts\NPC\NPCHandler.cs" />
@@ -122,6 +124,7 @@
      <Compile Include="Assets\LeanTween\Testing\TestingIssue.cs" />
      <Compile Include="Assets\LeanTween\Examples\Scripts\GeneralUISpace.cs" />
      <Compile Include="Assets\LeanTween\Testing\FollowingTests.cs" />
+     <Compile Include="Assets\Scenes\PuzzleCutsceneHandler.cs" />
      <Compile Include="Assets\LeanTween\Examples\Scripts\GeneralBasic.cs" />
      <Compile Include="Assets\LeanTween\Examples\Scripts\PathSplines.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
