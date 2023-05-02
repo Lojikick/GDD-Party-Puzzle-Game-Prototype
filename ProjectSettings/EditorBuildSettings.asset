@@ -26,7 +26,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Puzzle 5.unity
     guid: b6191bd648aa7c249b3328c7b17c1139
-  - enabled: 1
-    path: Assets/Scenes/Intro Cutscene.unity
-    guid: b769777435f4188478fe677987a35807
   m_configObjects: {}

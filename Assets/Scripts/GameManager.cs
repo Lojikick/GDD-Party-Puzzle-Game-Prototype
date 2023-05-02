@@ -30,10 +30,12 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(this);
     }
 
-    public void UpdateGameState(GameState newState) {
+    public void UpdateGameState(GameState newState)
+    {
         State = newState;
 
-        switch (newState) {
+        switch (newState)
+        {
             case GameState.IntroSequence:
                 break;
             case GameState.GreetingSequence:
@@ -89,7 +91,7 @@ public class GameManager : MonoBehaviour
 
         // Change scene
         //Load memory world
-        TransitionManager.instance.LoadSelectedScene(7);
+        TransitionManager.instance.LoadSelectedScene(1);
     }
 
     //This was for ending cutscnes, dont worry abt that now lol
@@ -103,9 +105,10 @@ public class GameManager : MonoBehaviour
         // Increment score
         npcsTalkedTo++;
         //Checks if the NPCs that were talked to are = to 5 (Really 4, but I called this func again so that the Gamestate would change and trigger the cutscene once the player talks to a fourth person)
-        if(npcsTalkedTo == 5){
+        if (npcsTalkedTo == 5)
+        {
             UpdateGameState(GameState.FuneralSequence);
-            
+
         }
         //Debug.Log(npcsTalkedTo);
     }
@@ -125,7 +128,8 @@ public class GameManager : MonoBehaviour
         return gameComplete;
     }
 
-    public enum GameState {
+    public enum GameState
+    {
         IntroSequence,
         GreetingSequence,
         FuneralSequence,
